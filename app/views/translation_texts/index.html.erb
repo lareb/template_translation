@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Translation Texts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Template</th>
+      <th>Local</th>
+      <th>Key value</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @translation_texts.each do |translation_text| %>
+      <tr>
+        <td><%= translation_text.template_id %></td>
+        <td><%= translation_text.local %></td>
+        <td><%= translation_text.key_value %></td>
+        <td><%= link_to 'Show', translation_text %></td>
+        <td><%= link_to 'Edit', edit_translation_text_path(translation_text) %></td>
+        <td><%= link_to 'Destroy', translation_text, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Translation Text', new_translation_text_path %>

@@ -17,3 +17,16 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require_tree .
+
+
+function reFormatName(raw_name){
+  let name = raw_name.trim().replace(/ /g, '-');
+  let uniqKey = generateUniqKey(name);
+  return uniqKey;
+}
+
+function generateUniqKey(str){
+  let randomStr = Math.floor(Math.random() * 26) + Date.now();
+  str = str.length > 20 ? str.substr(0, 20) : str;
+  return str.toLowerCase() + "_" + randomStr;
+}

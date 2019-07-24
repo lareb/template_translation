@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  template_id: 1
+  local: 1
+  key_value: 
+
+two:
+  template_id: 1
+  local: 1
+  key_value: 

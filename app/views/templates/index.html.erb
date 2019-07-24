@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4">Templates</h1>
+  <p class="lead">Following are the Templates available in the system, To get detail information Please click on Blue button on each template card.</p>
+</div>
+
+<div class="card-deck mb-3 text-center">
+  <% @templates.each do |template| %>
+  <div class="card mb-4 shadow-sm">
+    <div class="card-header">
+      <h4 class="my-0 font-weight-normal"><%= link_to template.title.truncate(20), edit_template_path(template)%></h4>
+    </div>
+    <div class="card-body">
+      <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
+
+      <p style="min-height: 50px"><%= template.description.truncate(50)%></p>
+      <ul class="list-unstyled mt-3 mb-4">
+        <!-- <li>10 users included</li>
+        <li>2 GB of storage</li>
+        <li>Email support</li>
+        <li>Help center access</li> -->
+      </ul>
+      <%= link_to 'Translate', new_template_translation_text_path(template), class: 'btn btn-lg btn-block btn-outline-primary'%>
+      <!-- <button type="button" class="btn btn-lg btn-block btn-outline-primary">Translate</button> -->
+    </div>
+  </div>
+  <% end %>
+
+</div>
+
+<%= link_to new_template_path, class: 'btn btn-primary btn-circle btn-xl add-new-template' do %>
+  <i class="fa fa-plus"></i>
+<%end%>

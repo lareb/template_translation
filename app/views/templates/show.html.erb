@@ -1,0 +1,21 @@
+<div id="template_body">
+  <%= @template.body.html_safe %>
+</div>
+
+
+<script type="text/javascript">
+  $( document ).ready(function() {
+    $('#template_body *').contents().filter(function() {
+      return (this.nodeType == 3) && this.nodeValue.match(/\S/);
+    }).wrap("<span class='translation' />")
+
+    $("#template_body span.translation").map(function(index, dom){
+      // console.log(index, value);
+      let key = reFormatName($(dom).text());
+      $(this).text(key);
+      // console.log($(this).text(key))
+      // reFormatName()
+    })
+
+  })
+</script>

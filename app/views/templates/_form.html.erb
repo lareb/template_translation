@@ -1,0 +1,32 @@
+<%= form_with(model: template, local: true,  multipart: true) do |form| %>
+  <% if template.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(template.errors.count, "error") %> prohibited this template from being saved:</h2>
+
+      <ul>
+      <% template.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: 'form-control', placeholder: 'Title of the Template' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :description %>
+    <%= form.text_field :description, class: 'form-control', placeholder: 'Template Brief description' %>
+  </div>
+
+  <div class="mb-3">
+    <label for="file">Template</label> <%= file_field_tag "file", class: 'form-control' %>
+  </div>
+
+  <!-- <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button> -->
+  <div class="actions">
+    <%= form.submit class: "btn btn-primary btn-lg btn-block"  %>
+  </div>
+<% end %>

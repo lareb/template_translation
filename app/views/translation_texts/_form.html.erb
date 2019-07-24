@@ -1,0 +1,52 @@
+<%= form_for [@template, @translation_text]  do |form| %>
+  <% if translation_text.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(translation_text.errors.count, "error") %> prohibited this translation_text from being saved:</h2>
+
+      <ul>
+      <% translation_text.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h4 class="mb-3">Select Language</h4>
+  <div class="d-block my-3">
+    <% SUPPORTED_LOCALE.each do |locale|%>
+      <div class="custom-control custom-radio">
+        <%= form.radio_button :local, locale[0], class: "custom-control-input", required: "", id: "translation_text_local_#{locale[0]}" %>
+        <label class="custom-control-label" for="translation_text_local_<%= locale[0]%>"><%= locale[1]%></label>
+      </div>
+    <% end %>
+  </div>
+
+  <%= form.hidden_field :key_value%>
+
+  <div class="actions">
+    <%= form.submit value: 'Begin', class: "btn btn-primary btn-lg btn-block" %>
+  </div>
+<% end %>
+
+<div id="template_body">
+  <%= @template.body.html_safe %>
+</div>
+
+
+<script type="text/javascript">
+  $( document ).ready(function() {
+    $('#template_body *').contents().filter(function() {
+      return (this.nodeType == 3) && this.nodeValue.match(/\S/);
+    }).wrap("<span class='translation' />");
+
+    // prepair JSON object
+    let pair = {}
+    $("#template_body span.translation").map(function(index, dom){
+      let text = $(dom).text().trim();
+      let key = reFormatName(text);
+      pair[key] = text;
+      $(this).text(key);
+    });
+    $('#translation_text_key_value').val(JSON.stringify(pair));
+  })
+</script>
