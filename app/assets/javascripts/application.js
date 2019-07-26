@@ -22,6 +22,7 @@
 function reFormatName(raw_name){
   let name = raw_name.trim().replace(/ /g, '-');
   let uniqKey = generateUniqKey(name);
+  console.log(uniqKey, "-------------------", raw_name)
   return uniqKey;
 }
 

@@ -5,6 +5,7 @@ class CreateTemplates < ActiveRecord::Migration[5.2]
       t.string :description, limit: 400
       t.text :full_content
       t.text :body
+      t.json :key_value
       t.timestamps
     end
   end

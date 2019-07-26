@@ -1,11 +1,11 @@
 class Template < ApplicationRecord
   has_many :translation_texts
 
-  # after_save :create_translation_entry
+  after_update :clear_translations
 
   private
-  def create_translation_entry
-
+  def clear_translations
+    # update(key_value: nil)
   end
 
 end

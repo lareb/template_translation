@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2019_07_24_062338) do
     t.string "description", limit: 400
     t.text "full_content"
     t.text "body"
+    t.json "key_value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

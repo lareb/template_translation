@@ -29,12 +29,12 @@ class TranslationTextsController < ApplicationController
     # ap translation_text_params
     # update_params = translation_text_params
     # update_params[:template_id] = @template.id
-    @translation_text = @template.translation_texts.new(update_params)
+    @translation_text = @template.translation_texts.new(translation_text_params)
 
     respond_to do |format|
       if @translation_text.save
         # should change the path
-        format.html { redirect_to translations_path, notice: 'Translation text was successfully created.' }
+        format.html { redirect_to templates_path, notice: 'Translation text was successfully created.' }
         format.json { render :show, status: :created, location: @translation_text }
       else
         format.html { render :new }
@@ -80,6 +80,6 @@ class TranslationTextsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def translation_text_params
-      params.require(:translation_text).permit(:template_id, :local, :key_value)
+      params.require(:translation_text).permit(:template_id, :local, :key_value, :text_keys)
     end
 end
