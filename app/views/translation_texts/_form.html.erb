@@ -22,7 +22,7 @@
   </div>
 
   <%= form.hidden_field :text_keys%>
-
+  <%= form.hidden_field :template_with_key%>
   <div class="actions">
     <%= form.submit value: 'Begin', class: "btn btn-primary btn-lg btn-block" %>
   </div>
@@ -47,6 +47,8 @@
       pair[key] = text;
       $(this).text(key);
     });
+
+    $('#translation_text_template_with_key').val($("#template_body").html());
     $('#translation_text_text_keys').val(JSON.stringify(pair));
   })
 </script>

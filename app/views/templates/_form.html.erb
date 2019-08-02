@@ -18,7 +18,7 @@
 
   <div class="mb-3">
     <%= form.label :description %>
-    <%= form.text_field :description, class: 'form-control', placeholder: 'Template Brief description' %>
+    <%= form.text_field :description, size: '12x30', class: 'form-control', placeholder: 'Template Brief description' %>
   </div>
 
   <div class="mb-3">
@@ -30,37 +30,3 @@
     <%= form.submit class: "btn btn-primary btn-lg btn-block"  %>
   </div>
 <% end %>
-
-<!-- <iframe id="uploaded-template-preview" src="about:blank"></iframe>
-
-<script type="text/javascript">
-  $( document ).ready(function() {
-    document.getElementById('file').onchange = function(){
-    var file = this.files[0];
-
-    var reader = new FileReader();
-    reader.onload = function(progressEvent){
-      // Entire file
-
-      // var myFrame = $("#myframe").contents().find('body');
-      // var textareaValue = this.result;
-      // myFrame.html(textareaValue);
-      $('#uploaded-template-preview').contents().find('html').html(this.result);
-
-      $('#uploaded-template-preview *').contents().filter(function() {
-        return (this.nodeType == 3) && this.nodeValue.match(/\S/);
-      }).wrap("<span class='translation' />")
-
-      $("#uploaded-template-preview body span.translation").map(function(index, dom){
-        // console.log(index, value);
-        let key = reFormatName($(dom).text());
-        $(this).text(key);
-        console.log($(this).text(key))
-        // reFormatName()
-      })
-
-    };
-    reader.readAsText(file);
-    };
-  })
-</script> -->

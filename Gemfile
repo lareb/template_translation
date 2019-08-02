@@ -38,6 +38,9 @@ gem 'jquery-rails'
 gem 'nokogiri'
 gem "google-cloud-translate"
 
+gem 'sidekiq'
+gem 'redis-namespace'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

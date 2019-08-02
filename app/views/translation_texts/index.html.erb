@@ -1,31 +1,25 @@
 <p id="notice"><%= notice %></p>
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4">Translated Templates</h1>
+  <p class="lead">Following are the Translated Templates available in the system.</p>
+</div>
 
-<h1>Translation Texts</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Template</th>
-      <th>Local</th>
-      <th>Key value</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @translation_texts.each do |translation_text| %>
-      <tr>
-        <td><%= translation_text.template_id %></td>
-        <td><%= translation_text.local %></td>
-        <td><%= translation_text.key_value %></td>
-        <td><%= link_to 'Show', translation_text %></td>
-        <td><%= link_to 'Edit', edit_translation_text_path(translation_text) %></td>
-        <td><%= link_to 'Destroy', translation_text, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="row">
+  <% @translation_texts.each do |translation_text| %>
+    <% next if translation_text.is_core?%>
+    <div class="col-lg-4">
+      <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect>
+        <text x="40%" y="50%" fill="#FF0000" dy=".3em">EN</text>
+      </svg>
+      <h2><%= get_local_word(translation_text.local)%></h2>
+      <p><%= @template.title%> in <%= SUPPORTED_LOCALE[translation_text.local.to_sym]%></p>
+      <p><%= link_to "Preview »", template_translation_text_path(@template, translation_text), class: "btn btn-secondary", target: "_blank"%></p>
+      </div>
     <% end %>
-  </tbody>
-</table>
+</div>
 
-<br>
-
-<%= link_to 'New Translation Text', new_translation_text_path %>
+<%= link_to new_template_translation_text_path(@template), class: 'btn btn-primary btn-circle btn-xl add-new-template' do %>
+  <i class="fa fa-plus"></i>
+<%end%>

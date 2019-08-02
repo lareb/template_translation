@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2019_07_24_062338) do
     t.string "description", limit: 400
     t.text "full_content"
     t.text "body"
+    t.text "template_with_key"
     t.json "key_value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -29,6 +30,8 @@ ActiveRecord::Schema.define(version: 2019_07_24_062338) do
     t.integer "template_id", null: false
     t.integer "local"
     t.json "key_value"
+    t.text "template_body"
+    t.boolean "is_core", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

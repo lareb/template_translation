@@ -1,0 +1,11 @@
+span .translation:hover {
+  border: 1px dotted gray;
+}
+
+.editable-input textarea.input-large {
+  min-width: 400px;
+}
+
+.editable-input input.input-medium {
+  min-width: 300px;
+}

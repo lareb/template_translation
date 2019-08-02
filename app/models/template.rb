@@ -1,5 +1,5 @@
 class Template < ApplicationRecord
-  has_many :translation_texts
+  has_many :translation_texts, dependent: :destroy
 
   after_update :clear_translations
 

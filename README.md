@@ -22,3 +22,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+Start Sidekkiq
+
+bundle exec sidekiq -C config/sidekiq.yml

@@ -5,12 +5,13 @@ class TranslationTextsController < ApplicationController
   # GET /translation_texts
   # GET /translation_texts.json
   def index
-    @translation_texts = TranslationText.all
+    @translation_texts = @template.translation_texts
   end
 
   # GET /translation_texts/1
   # GET /translation_texts/1.json
   def show
+    render layout: false
   end
 
   # GET /translation_texts/new
@@ -29,15 +30,28 @@ class TranslationTextsController < ApplicationController
     # ap translation_text_params
     # update_params = translation_text_params
     # update_params[:template_id] = @template.id
-    @translation_text = @template.translation_texts.new(translation_text_params)
-
+    params_hash = []
+    core_template = @template.translation_texts.find_by(is_core: true)
+    if core_template.nil?
+      core_params = translation_text_params
+      core_params[:local] = 'en'
+      core_params[:is_core] = true
+      params_hash = [translation_text_params, core_params]
+    else
+      params_hash = translation_text_params
+    end
+    puts "-----------)))))))))))))-----------------"
+    ap params_hash
+    # @translation_text = @template.translation_texts.new(translation_text_params)
     respond_to do |format|
-      if @translation_text.save
+      begin
+        @template.translation_texts.create!(params_hash)
         # should change the path
         format.html { redirect_to templates_path, notice: 'Translation text was successfully created.' }
         format.json { render :show, status: :created, location: @translation_text }
-      else
-        format.html { render :new }
+      rescue Exception => e
+        @translation_text = @template.translation_texts.new
+        format.html { redirect_to new_template_translation_text_path(@template), notice: e.message }
         format.json { render json: @translation_text.errors, status: :unprocessable_entity }
       end
     end
@@ -80,6 +94,6 @@ class TranslationTextsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def translation_text_params
-      params.require(:translation_text).permit(:template_id, :local, :key_value, :text_keys)
+      params.require(:translation_text).permit(:template_id, :local, :key_value, :text_keys, :template_with_key)
     end
 end

@@ -80,7 +80,7 @@ class TemplatesController < ApplicationController
       else
         logger.error "Bad file_data: #{file_data.class.name}: # {@filename.inspect}"
       end
-
+      # @lines = params[:template][:full_content]
       new_params = template_params
       new_params['full_content'] = @lines
       new_params['body'] = crop_body(@lines)
