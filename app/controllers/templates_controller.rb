@@ -1,5 +1,5 @@
 class TemplatesController < ApplicationController
-  before_action :set_template, only: [:show, :edit, :update, :destroy, :preview]
+  before_action :set_template, only: [:show, :edit, :update, :destroy, :preview, :in_process, :update_core_template]
 
   # GET /templates
   # GET /templates.json
@@ -26,6 +26,9 @@ class TemplatesController < ApplicationController
   def edit
   end
 
+  def in_progress
+  end
+
   # POST /templates
   # POST /templates.json
   def create
@@ -33,7 +36,7 @@ class TemplatesController < ApplicationController
 
     respond_to do |format|
       if @template.save
-        format.html { redirect_to @template, notice: 'Template was successfully created.' }
+        format.html { redirect_to in_process_template_path(@template), notice: 'Template was successfully created.' }
         format.json { render :show, status: :created, location: @template }
       else
         format.html { render :new }
@@ -49,7 +52,21 @@ class TemplatesController < ApplicationController
     # ap updated_params
     respond_to do |format|
       if @template.update(updated_params)
-        format.html { redirect_to @template, notice: 'Template was successfully updated.' }
+        format.html { redirect_to in_process_template_path(@template), notice: 'Template was successfully updated.' }
+        format.json { render :show, status: :ok, location: @template }
+      else
+        format.html { render :edit }
+        format.json { render json: @template.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update_core_template
+    respond_to do |format|
+      # @translation_text.without_auditing do
+      if @template.update(updated_params)
+        @template.update_translations
+        format.html { redirect_to templates_path, notice: 'Template was successfully updated.' }
         format.json { render :show, status: :ok, location: @template }
       else
         format.html { render :edit }
@@ -72,6 +89,7 @@ class TemplatesController < ApplicationController
     # read file line
     def updated_params
       file_data = params[:file]
+      return template_params if file_data.blank?
 
       if file_data.respond_to?(:read)
         @lines = file_data.read
@@ -100,6 +118,6 @@ class TemplatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def template_params
-      params.require(:template).permit(:body, :title, :description, :template)
+      params.require(:template).permit(:body, :title, :description, :template, :template_with_key, :key_value)
     end
 end

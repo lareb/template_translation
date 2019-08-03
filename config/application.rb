@@ -14,6 +14,7 @@ module Vernacular
     config.autoload_paths << Rails.root.join('lib')
     config.active_job.queue_adapter = :sidekiq
     Sidekiq.configure_server { |c| c.redis = { url: ENV['REDIS_URL'] } }
+    config.encoding = "utf-8"
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

@@ -6,6 +6,8 @@ class TranslationTextsController < ApplicationController
   # GET /translation_texts.json
   def index
     @translation_texts = @template.translation_texts
+    puts "----------------sadfd--------qerw--"
+    ap @translation_texts
   end
 
   # GET /translation_texts/1
@@ -27,31 +29,13 @@ class TranslationTextsController < ApplicationController
   # POST /translation_texts
   # POST /translation_texts.json
   def create
-    # ap translation_text_params
-    # update_params = translation_text_params
-    # update_params[:template_id] = @template.id
-    params_hash = []
-    core_template = @template.translation_texts.find_by(is_core: true)
-    if core_template.nil?
-      core_params = translation_text_params
-      core_params[:local] = 'en'
-      core_params[:is_core] = true
-      params_hash = [translation_text_params, core_params]
-    else
-      params_hash = translation_text_params
-    end
-    puts "-----------)))))))))))))-----------------"
-    ap params_hash
-    # @translation_text = @template.translation_texts.new(translation_text_params)
+    @translation_text = @template.translation_texts.new(translation_text_params)
     respond_to do |format|
-      begin
-        @template.translation_texts.create!(params_hash)
-        # should change the path
+      if @translation_text.save
         format.html { redirect_to templates_path, notice: 'Translation text was successfully created.' }
-        format.json { render :show, status: :created, location: @translation_text }
-      rescue Exception => e
-        @translation_text = @template.translation_texts.new
-        format.html { redirect_to new_template_translation_text_path(@template), notice: e.message }
+        format.json { render :show, status: :ok, location: @translation_text }
+      else
+        format.html { render :edit }
         format.json { render json: @translation_text.errors, status: :unprocessable_entity }
       end
     end
@@ -60,14 +44,18 @@ class TranslationTextsController < ApplicationController
   # PATCH/PUT /translation_texts/1
   # PATCH/PUT /translation_texts/1.json
   def update
+    puts "===========dggdgdghd==============="
     respond_to do |format|
-      if @translation_text.update(translation_text_params)
-        format.html { redirect_to templates_path, notice: 'Translation text was successfully updated.' }
-        format.json { render :show, status: :ok, location: @translation_text }
-      else
-        format.html { render :edit }
-        format.json { render json: @translation_text.errors, status: :unprocessable_entity }
-      end
+      # @translation_text.without_auditing do
+        if @translation_text.update(translation_text_params)
+          save_without_auditing
+          format.html { redirect_to templates_path, notice: 'Translation text was successfully updated.' }
+          format.json { render :show, status: :ok, location: @translation_text }
+        else
+          format.html { render :edit }
+          format.json { render json: @translation_text.errors, status: :unprocessable_entity }
+        end
+      # end
     end
   end
 

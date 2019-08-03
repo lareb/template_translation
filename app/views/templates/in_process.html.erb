@@ -1,0 +1,54 @@
+<div id="template_body">
+  <%= @template.body.html_safe %>
+</div>
+
+<%= form_for(@template, url: update_core_template_template_path(@template), method: :put, html: {id: "process-template-and-keys"}) do |form| %>
+  <% if @template.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@template.errors.count, "error") %> prohibited this template from being saved:</h2>
+
+      <ul>
+      <% @template.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <%= form.text_area :template_with_key%>
+  <%= form.text_area :key_value%>
+
+
+  <!-- <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button> -->
+  <div class="actions">
+    <%= form.submit class: "btn btn-primary btn-lg btn-block"  %>
+  </div>
+<% end %>
+
+
+<script type="text/javascript">
+  $( document ).ready(function() {
+    $('#template_body *').contents().filter(function() {
+      return (this.nodeType == 3) && this.nodeValue.match(/\S/);
+    }).wrap("<span class='translation' />");
+
+    // prepair JSON object
+    let pair = {}
+    $("#template_body span.translation").map(function(index, dom){
+      let text = $(dom).text().trim();
+      let key = reFormatName(text);
+      pair[key] = text;
+      $(this).text(key);
+    });
+
+    $('#template_template_with_key').val($("#template_body").html());
+    $('#template_key_value').val(JSON.stringify(pair));
+
+    setTimeout(function(){
+      $("#process-template-and-keys").submit();
+    }, 500)
+
+  })
+</script>

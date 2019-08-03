@@ -7,7 +7,7 @@ class TranslationJob < ApplicationJob
       translated_blob = {}
       # get key and translation hash
       translated_template = template.template_with_key
-      template.key_value.each do |k, v|
+      JSON.parse(template.key_value).each do |k, v|
         # Translate text and create new hash
         translated_string = translate(v, translation_text.local)
         translated_blob[k] = translated_string
@@ -18,11 +18,17 @@ class TranslationJob < ApplicationJob
       full_html = replace_placeholder(template, translated_template)
       puts "=======================fdgdd=============="
       ap full_html
+      #  this should be save without auditing
+      # translation_text.without_auditing do
+      # translation_text.key_value = translated_blob
+      # translation_text.template_body = full_html
+      # translation_text.save_without_auditing
       translation_text.update({key_value: translated_blob, template_body: full_html})
+      # end
     rescue Exception => e
       puts "===================="
-      puts e
-      logger.error e.message
+      ap e
+      ap e.message
     end
   end
 

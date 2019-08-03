@@ -37,6 +37,8 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 gem 'nokogiri'
 gem "google-cloud-translate"
+# gem 'paper_trail'
+gem "audited", "~> 4.9"
 
 gem 'sidekiq'
 gem 'redis-namespace'
