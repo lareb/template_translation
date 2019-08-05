@@ -6,14 +6,14 @@
 
 <div class="card-deck mb-3 text-center">
   <% @templates.each do |template| %>
-  <div class="card mb-4 shadow-sm">
+  <div class="card gradient-1 shadow mb-4">
     <div class="card-header">
-      <h4 class="my-0 font-weight-normal"><%= link_to template.title.truncate(20), edit_template_path(template)%></h4>
+      <h4 class="my-0 font-weight-normal card-title text-white"><%= link_to template.title.truncate(20), edit_template_path(template), class: 'card-title text-white text-capitalize text-decoration-none' %></h4>
     </div>
     <div class="card-body">
-      <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
+      <h1 class="card-title pricing-card-title text-white">$0 <small class="text-black">/ mo</small></h1>
 
-      <p style="min-height: 50px"><%= template.description.truncate(50)%></p>
+      <p style="min-height: 50px;" class="text-white mb-0 text-capitalize"><%= template.description.truncate(50)%></p>
       <ul class="list-unstyled mt-3 mb-4">
         <!-- <li>10 users included</li>
         <li>2 GB of storage</li>
@@ -21,8 +21,8 @@
         <li>Help center access</li> -->
       </ul>
       <div class="mb-2">
-        <%= link_to 'Translate', template_translation_texts_path(template), class: 'btn btn-lg btn-block btn-outline-primary mb-6'%>
-        <%= link_to 'Delete', template_path(template), class: 'btn btn-lg btn-block btn-outline-primary mb-6', method: 'delete'%>
+        <%= link_to 'Translate', template_translation_texts_path(template), class: 'btn btn-lg btn-block btn-primary btn-outline-primary mb-6 text-white'%>
+        <%= link_to 'Delete', template_path(template), class: 'btn btn-lg btn-block btn-primary btn-outline-primary mb-6 text-white', method: 'delete'%>
       </div>
       <!-- <button type="button" class="btn btn-lg btn-block btn-outline-primary">Translate</button> -->
     </div>

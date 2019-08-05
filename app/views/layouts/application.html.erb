@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>DynamicForms</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,7 +14,7 @@
 
   <body>
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-      <h5 class="my-0 mr-md-auto font-weight-normal">Company name</h5>
+      <div class="logo my-0 mr-md-auto "><img src="<%= asset_path 'fa.png' %>" class="img-fluid"></div>
       <nav class="my-2 my-md-0 mr-md-3">
         <%= link_to 'Templates', templates_path, class: 'p-2 text-dark'%>
         <!-- <a class="p-2 text-dark" href="#">Features</a> -->
@@ -28,8 +29,9 @@
       <%= yield %>
     </div>
 
+  <div class="container-fluid border-top my-md-5">
     <div class="container">
-      <footer class="pt-4 my-md-5 pt-md-5 border-top">
+      <footer class="pt-4 pt-md-5">
         <div class="row">
           <div class="col-12 col-md">
             <!-- <img class="mb-2" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24"> -->
@@ -67,7 +69,7 @@
         </div>
       </footer>
     </div>
-
+</div>
 
   </body>
 </html>

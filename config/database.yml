@@ -26,6 +26,7 @@ development:
   <<: *default
   database: vernacular_development
 
+  host: localhost
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
@@ -59,6 +60,15 @@ development:
 test:
   <<: *default
   database: vernacular_test
+
+  username: <%= ENV['DB_USERNAME']%>
+  # The password associated with the postgres role (username).
+  password: <%= ENV['DB_PASWORD']%>
+
+  # Connect on a TCP socket. Omitted by default since the client uses a
+  # domain socket that doesn't need configuration. Windows does not have
+  # domain sockets, so uncomment these lines.
+  #host: localhost
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
