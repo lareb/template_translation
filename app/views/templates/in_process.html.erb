@@ -1,37 +1,54 @@
-<div id="template_body">
-  <%= @template.body.html_safe %>
-</div>
+<div class="container-fluid">
 
-<%= form_for(@template, url: update_core_template_template_path(@template), method: :put, html: {id: "process-template-and-keys"}) do |form| %>
-  <% if @template.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@template.errors.count, "error") %> prohibited this template from being saved:</h2>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
 
-      <ul>
-      <% @template.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <!-- <h1 class="display-4">Processing...</h1> -->
+
+          <div style="display: none;">
+            <div id="template_body">
+              <%= @template.body.html_safe %>
+            </div>
+
+            <%= form_for(@template, url: update_core_template_template_path(@template), method: :put, html: {id: "process-template-and-keys"}) do |form| %>
+              <% if @template.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@template.errors.count, "error") %> prohibited this template from being saved:</h2>
+
+                  <ul>
+                  <% @template.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                  </ul>
+                </div>
+              <% end %>
+
+
+
+              <%= form.text_area :template_with_key%>
+              <%= form.text_area :key_value%>
+
+              <% @locales.each do |locale|%>
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" name="template[locales][]" checked="true" value="<%=locale%>" class="custom-control-input" id='translation_text_local_<%=locale%>'>
+                  <label class="custom-control-label" for='translation_text_local_<%=locale%>'><%=locale%></label>
+                </div>
+              <% end %>
+
+
+              <div class="actions">
+                <%= form.submit class: "btn btn-primary btn-lg btn-block"  %>
+              </div>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-
-
-  <%= form.text_area :template_with_key%>
-  <%= form.text_area :key_value%>
-
-  <% @locales.each do |locale|%>
-    <div class="custom-control custom-checkbox">
-      <input type="checkbox" name="template[locales][]" checked="true" value="<%=locale%>" class="custom-control-input" id='translation_text_local_<%=locale%>'>
-      <label class="custom-control-label" for='translation_text_local_<%=locale%>'><%=locale%></label>
-    </div>
-  <% end %>
-
-
-  <div class="actions">
-    <%= form.submit class: "btn btn-primary btn-lg btn-block"  %>
   </div>
-<% end %>
+</div>
 
 
 <script type="text/javascript">

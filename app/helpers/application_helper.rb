@@ -27,7 +27,7 @@ module ApplicationHelper
 
     return %{
       <!--PREVIEW-FORMS-->
-      <div class="navbar"><a href="#home" class="active">Home</a><a href="#news">News</a><a href="#contact">Contact</a></div>
+      <div class="navbar"><a href="#" onclick="return saveAsNewVersion()">Save As New Version</a><a href="#" onclick="return updateVersion()">Update Version</a></div>
       <input type="hidden" value="#{template_text.id}" id="template_text_id" />
       <input type="hidden" value="#{template_translation_text_version_path(template_text.template, template_text, version)}" id="edit_form_url" />
       <input type="hidden" value="#{template_translation_text_versions_path(template_text.template, template_text)}" id="new_form_url" />

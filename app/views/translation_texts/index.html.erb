@@ -5,20 +5,41 @@
 </div>
 
 
-<%#= Sidekiq::Queue.new.find_job()%>
-<div class="row">
-  <% @translation_texts.each do |translation_text| %>
-    <% #next if translation_text.is_core?%>
-    <div class="col-lg-4">
-      <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect>
-        <text x="40%" y="50%" fill="#FF0000" dy=".3em">EN</text>
-      </svg>
-      <h2><%= get_local_word(translation_text.local)%></h2>
-      <p><%= @template.title%> in <%= SUPPORTED_LOCALE[translation_text.local.to_sym]%></p>
-      <p><%= link_to "Preview Latest Version»", template_translation_text_version_path(@template, translation_text, translation_text.versions.try(:last)), class: "btn btn-secondary", target: "_blank"%></p>
-      <p><%= link_to "Versions»", template_translation_text_versions_path(@template, translation_text), class: "btn btn-secondary", target: "_blank"%></p>
+<div class="container-fluid">
+
+  <div class="row">
+    <% @translation_texts.each do |translation_text| %>
+
+    <div class="col-4">
+      <div class="card">
+          <div class="card-body">
+              <div class="text-center">
+                  <img alt="" class="rounded-circle mt-4" src="/assets/users/5.jpg">
+                  <h4 class="card-widget__title text-dark mt-3"><%= @template.title%> in <%= SUPPORTED_LOCALE[translation_text.local.to_sym]%></h4>
+                  <p class="text-muted"><%= translation_text.versions.last.updated_at.strftime('%B %d, %Y at %I:%M %p')%></p>
+                  <h5 class="card-widget__title text-dark mt-3"><%= get_local_word(translation_text.local.to_s) %></h5>
+                  <!-- <a class="btn gradient-4 btn-lg border-0 btn-rounded px-5" href="javascript:void()"><%= translation_text.versions.count%> Versions</a> -->
+              </div>
+          </div>
+          <div class="card-footer border-0 bg-transparent">
+              <div class="row">
+                  <div class="col-6 pt-3">
+                    <%= link_to template_translation_text_version_path(@template, translation_text, translation_text.versions.try(:last)), class: "btn gradient-3 btn-lg border-0 btn-rounded px-5" do%>
+                      <i class="fa fa-language gradient-1-text" aria-hidden="true"></i> Preview
+                    <%end%>
+                  </div>
+                  <div class="col-6 pt-3">
+                    <%= link_to template_translation_text_versions_path(@template, translation_text), class: "btn gradient-4 btn-lg border-0 btn-rounded px-5" do%>
+                      <i class="fa fa-files-o gradient-1-text" aria-hidden="true"></i> <%= translation_text.versions.count%> Versions
+                    <%end%>
+                  </div>
+              </div>
+          </div>
       </div>
-    <% end %>
+  </div>
+
+      <% end %>
+  </div>
 </div>
 
 <%= link_to new_template_translation_text_path(@template), class: 'btn btn-primary btn-circle btn-xl add-new-template' do %>

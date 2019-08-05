@@ -1,10 +1,91 @@
-<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-  <h2 class="display-8">Difference: V<%= @v1.version_number%> (<small><%= @v1.updated_at.strftime('%b %d, %Y at %I:%M %p')%></small>) & V<%= @v2.version_number%> (<small><%= @v2.updated_at.strftime('%b %d, %Y at %I:%M %p')%></small>)</h2>
-  <p class="lead"></p>
-</div>
+<div class="container-fluid">
+  <div class="row">
+    <h2 class="display-8">Difference: V<%= @v1.version_number%> (<small><%= @v1.updated_at.strftime('%b %d, %Y at %I:%M %p')%></small>) & V<%= @v2.version_number%> (<small><%= @v2.updated_at.strftime('%b %d, %Y at %I:%M %p')%></small>)</h2>
+    <!-- <p class="lead"></p> -->
 
-<%= Diffy::Diff.new(@v1.html_body, @v2.html_body, include_plus_and_minus_in_html: true, include_diff_info: true).to_s(:html).html_safe%>
-<%#= Diffy::SplitDiff.new(@v1.html_body, @v2.html_body, include_plus_and_minus_in_html: true, format: :html).right.html_safe%>
+
+    <div class="col-lg-8 col-xl-12">
+      <div class="card">
+        <div class="card-body">
+          <%= Diffy::Diff.new(@v1.html_body, @v2.html_body, include_plus_and_minus_in_html: true, include_diff_info: true).to_s(:html).html_safe%>
+        </div>
+      </div>
+      <div class="card">
+          <div class="card-body">
+              <div class="media media-reply">
+                  <img class="mr-3 circle-rounded" src="/assets/avatar/2.jpg" width="50" height="50" alt="Generic placeholder image">
+                  <div class="media-body">
+                      <div class="d-sm-flex justify-content-between mb-2">
+                          <h5 class="mb-sm-0">Milan Gbah <small class="text-muted ml-3">about 3 days ago</small></h5>
+                          <div class="media-reply__link">
+                              <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-up"></i></button>
+                              <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-down"></i></button>
+                              <button class="btn btn-transparent text-dark font-weight-bold p-0 ml-2">Reply</button>
+                          </div>
+                      </div>
+
+                      <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                      <ul>
+                          <li class="d-inline-block"><img class="rounded" width="60" height="60" src="/assets/blog/2.jpg" alt=""></li>
+                          <li class="d-inline-block"><img class="rounded" width="60" height="60" src="/assets/blog/3.jpg" alt=""></li>
+                          <li class="d-inline-block"><img class="rounded" width="60" height="60" src="/assets/blog/4.jpg" alt=""></li>
+                          <li class="d-inline-block"><img class="rounded" width="60" height="60" src="/assets/blog/1.jpg" alt=""></li>
+                      </ul>
+
+                      <div class="media mt-3">
+                      <img class="mr-3 circle-rounded circle-rounded" src="/assets/avatar/4.jpg" width="50" height="50" alt="Generic placeholder image">
+                      <div class="media-body">
+                          <div class="d-sm-flex justify-content-between mb-2">
+                              <h5 class="mb-sm-0">Milan Gbah <small class="text-muted ml-3">about 3 days ago</small></h5>
+                              <div class="media-reply__link">
+                                  <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-up"></i></button>
+                                  <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-down"></i></button>
+                                  <button class="btn btn-transparent p-0 ml-3 font-weight-bold">Reply</button>
+                              </div>
+                          </div>
+                          <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="media media-reply">
+              <img class="mr-3 circle-rounded" src="/assets/avatar/2.jpg" width="50" height="50" alt="Generic placeholder image">
+              <div class="media-body">
+                  <div class="d-sm-flex justify-content-between mb-2">
+                      <h5 class="mb-sm-0">Milan Gbah <small class="text-muted ml-3">about 3 days ago</small></h5>
+                      <div class="media-reply__link">
+                          <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-up"></i></button>
+                          <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-down"></i></button>
+                          <button class="btn btn-transparent p-0 ml-3 font-weight-bold">Reply</button>
+                      </div>
+                  </div>
+
+                  <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+              </div>
+          </div>
+
+          <div class="media media-reply">
+              <img class="mr-3 circle-rounded" src="/assets/avatar/2.jpg" width="50" height="50" alt="Generic placeholder image">
+              <div class="media-body">
+                  <div class="d-sm-flex justify-content-between mb-2">
+                      <h5 class="mb-sm-0">Milan Gbah <small class="text-muted ml-3">about 3 days ago</small></h5>
+                      <div class="media-reply__link">
+                          <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-up"></i></button>
+                          <button class="btn btn-transparent p-0 mr-3"><i class="fa fa-thumbs-down"></i></button>
+                          <button class="btn btn-transparent p-0 ml-3 font-weight-bold">Reply</button>
+                      </div>
+                  </div>
+
+                  <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+              </div>
+          </div>
+      </div>
+      </div>
+  </div>
+
+  </div>
+</div>
 <style>
   <%= Diffy::CSS%>
 </style>
