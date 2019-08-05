@@ -1,7 +1,7 @@
 class TranslationJob < ApplicationJob
   queue_as :default
 
-  def perform(translation_text)
+  def perform(translation_text, create_new_version = true)
     template = translation_text.template
     begin
       translated_blob = {}
@@ -16,14 +16,13 @@ class TranslationJob < ApplicationJob
       end
       # set translated template
       full_html = replace_placeholder(template, translated_template)
-      puts "=======================fdgdd=============="
+      puts "=======================fdgdd============= Count = #{translation_text.versions.count}"
       ap full_html
-      #  this should be save without auditing
-      # translation_text.without_auditing do
-      # translation_text.key_value = translated_blob
-      # translation_text.template_body = full_html
-      # translation_text.save_without_auditing
-      translation_text.update({key_value: translated_blob, template_body: full_html})
+      # if translation_text.versions.count == 0
+      #   translation_text.update({key_value: translated_blob, template_body: full_html, create_new_version: true})
+      # else
+      translation_text.update({key_value: translated_blob, template_body: full_html, create_new_version: create_new_version})
+      # end
       # end
     rescue Exception => e
       puts "===================="

@@ -1,33 +1,38 @@
 include Translation
 class TranslationText < ApplicationRecord
+  attr_accessor :text_keys, :template_with_key, :create_new_version, :update_version
+
   after_create_commit :translate_texts
-  audited only: [:key_value, :template_body], on: [:update, :destroy]
-  # paper_trail.on_update
-  # has_paper_trail only: [:key_value, :template_body], on: [:update] #, if: Proc.new { |t| ap "#{t.key_value} ===>"; !t.key_value.nil? }
-  # paper_trail.on_create
-  # paper_trail.on_update     # etc.
+  after_update :create_version
+  # audited only: [:key_value, :template_body], on: [:update, :destroy], if: :active?
 
-
-  attr_accessor :text_keys, :template_with_key
 
   enum local: SUPPORTED_LOCALE.map(&:first)
   belongs_to :template
+  has_many :versions
 
   validates :local, presence: true
   validates :local, uniqueness: { scope: [:template_id] }
 
-
-
-  # paper_trail.on_create #:translate_texts
-  # user.without_versioning { |obj| obj.update_attributes(attribute: 'new_value') }
-  # private
   def translate_texts
-    puts "============================back ground job should start--------"
-    # ap text_keys
-    # json = JSON.parse(text_keys)
-    ap text_keys
-    # template.update(key_value: json, template_with_key: template_with_key)
-    TranslationJob.perform_later(self)
+    job = TranslationJob.perform_later(self)
+    # puts "-%%%%%%%%%%%%%%%%%%%%%%%%%%%-"
+    # ap job.job_id
+    # ap Sidekiq::Queue.new.find_job(job.job_id)
+    update(job_id: job.job_id)
+  end
+
+  private
+  def create_version
+    if create_new_version == true
+      puts "+++++++++++++++++++++Version created"
+      Version.create!({translation_text_id: self.id, html_body: template_body, translation_json: key_value})
+    end
+
+    if update_version == true
+      puts "----------------------Same Version updated"
+      versions.last.update({translation_text_id: self.id, html_body: template_body, translation_json: key_value})
+    end
   end
 
 end

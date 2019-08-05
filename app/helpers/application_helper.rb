@@ -13,31 +13,36 @@ module ApplicationHelper
     end
   end
 
-  def preview_enabled(template_text)
-    puts "-------------deew"
-    ap preview_assets
-    return template_text.gsub("</head>", "#{preview_assets}</head>")
+  def preview_enabled(template_text, version)
+    text = version.try(:html_body)
+    hidden_fields = hidden_fields(template_text, version)
+    return text.gsub("</head>", "#{preview_assets}</head>").gsub('</body>', "#{hidden_fields}</body>")
   end
 
-  def version_preview_enabled(yaml_object)
-    puts "-------------deew"
-    puts yaml_object
-    template_text = PaperTrail.serializer.load(yaml_object)
+  def hidden_fields(template_text, version)
 
-    return template_text['template_body'].gsub("</head>", "#{preview_assets}</head>")
+    return %{
+      <!--PREVIEW-FORMS-->
+      <input type="hidden" value="#{template_text.id}" id="template_text_id" />
+      <input type="hidden" value="#{template_translation_text_version_path(template_text.template, template_text, version)}" id="edit_form_url" />
+      <input type="hidden" value="#{template_translation_text_versions_path(template_text.template, template_text)}" id="new_form_url" />
+      <!--/PREVIEW-FORMS-->
+    }
   end
 
   def preview_assets
     return %{
+      <!--PREVIEW-FIELDS-->
       <link href="/css/bootstrap-editable.css" rel="stylesheet">
       <link href="/css/preview.css" rel="stylesheet">
       <link href="/css/bootstrap.css" rel="stylesheet">
       <link href="/css/bootstrap-responsive.css" rel="stylesheet">
-
-      <script src="/js/jquery-1.9.1.min.js"></script>
+      #{csrf_meta_tag}
+      <script src="/js/jquery-1.9.1.min.js"csrf-token></script>
       <script src="/js/bootstrap.js"></script>
       <script src="/js/bootstrap-editable.js"></script>
       <script src="/js/preview.js"></script>
+      <!--/PREVIEW-FIELDS-->
     }
   end
 end

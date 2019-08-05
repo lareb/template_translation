@@ -52,6 +52,7 @@ class TemplatesController < ApplicationController
     # ap updated_params
     respond_to do |format|
       if @template.update(updated_params)
+        # @template.update_translations
         format.html { redirect_to in_process_template_path(@template), notice: 'Template was successfully updated.' }
         format.json { render :show, status: :ok, location: @template }
       else

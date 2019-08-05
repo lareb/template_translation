@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_03_142026) do
+ActiveRecord::Schema.define(version: 2019_08_04_065808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,7 +53,16 @@ ActiveRecord::Schema.define(version: 2019_08_03_142026) do
     t.integer "local"
     t.json "key_value"
     t.text "template_body"
-    t.boolean "is_core", default: false
+    t.string "job_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "versions", force: :cascade do |t|
+    t.integer "translation_text_id"
+    t.text "html_body"
+    t.json "translation_json"
+    t.integer "version_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

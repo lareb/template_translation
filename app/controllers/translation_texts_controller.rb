@@ -6,8 +6,6 @@ class TranslationTextsController < ApplicationController
   # GET /translation_texts.json
   def index
     @translation_texts = @template.translation_texts
-    puts "----------------sadfd--------qerw--"
-    ap @translation_texts
   end
 
   # GET /translation_texts/1
@@ -48,7 +46,6 @@ class TranslationTextsController < ApplicationController
     respond_to do |format|
       # @translation_text.without_auditing do
         if @translation_text.update(translation_text_params)
-          save_without_auditing
           format.html { redirect_to templates_path, notice: 'Translation text was successfully updated.' }
           format.json { render :show, status: :ok, location: @translation_text }
         else

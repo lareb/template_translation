@@ -8,10 +8,10 @@
   <% @versions.each_with_index do |version, index| %>
   <div class="card mb-4 shadow-sm">
     <div class="card-header">
-      <h4 class="my-0 font-weight-normal"><%= @template.title%> - V<%= version.version%></h4>
+      <h4 class="my-0 font-weight-normal"><%= @template.title%> - V<%= version.version_number%></h4>
     </div>
     <div class="card-body">
-      <h1 class="card-title pricing-card-title">V<%= version.version%></h1>
+      <h1 class="card-title pricing-card-title">V<%= version.version_number%></h1>
 
       <p style="min-height: 50px"><%= version.created_at.strftime('%B %d, %Y at %I:%M %p')%></p>
       <ul class="list-unstyled mt-3 mb-4">
@@ -21,7 +21,7 @@
         <li>Help center access</li> -->
       </ul>
       <div class="mb-2">
-        <%= link_to 'Preview', template_translation_text_version_path(@template, @translation_text, version), class: 'btn btn-lg btn-block btn-outline-primary mb-6', target: '_blank'%>
+        <%= link_to 'Preview and Edit', template_translation_text_version_path(@template, @translation_text, version), class: 'btn btn-lg btn-block btn-outline-primary mb-6', target: '_blank'%>
         <%#= link_to 'Delete', template_translation_texts_path(template), class: 'btn btn-lg btn-block btn-outline-primary mb-6'%>
       </div>
       <!-- <button type="button" class="btn btn-lg btn-block btn-outline-primary">Translate</button> -->

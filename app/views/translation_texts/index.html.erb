@@ -5,7 +5,7 @@
 </div>
 
 
-
+<%#= Sidekiq::Queue.new.find_job()%>
 <div class="row">
   <% @translation_texts.each do |translation_text| %>
     <% #next if translation_text.is_core?%>
@@ -15,7 +15,7 @@
       </svg>
       <h2><%= get_local_word(translation_text.local)%></h2>
       <p><%= @template.title%> in <%= SUPPORTED_LOCALE[translation_text.local.to_sym]%></p>
-      <p><%= link_to "Preview Latest Version»", template_translation_text_version_path(@template, translation_text, translation_text.audits.try(:last)), class: "btn btn-secondary", target: "_blank"%></p>
+      <p><%= link_to "Preview Latest Version»", template_translation_text_version_path(@template, translation_text, translation_text.versions.try(:last)), class: "btn btn-secondary", target: "_blank"%></p>
       <p><%= link_to "Versions»", template_translation_text_versions_path(@template, translation_text), class: "btn btn-secondary", target: "_blank"%></p>
       </div>
     <% end %>

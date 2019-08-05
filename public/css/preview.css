@@ -9,3 +9,32 @@ span .translation:hover {
 .editable-input input.input-medium {
   min-width: 300px;
 }
+
+
+.navbar {
+  overflow: hidden;
+  background-color: gray !important;
+  position: fixed !important;
+  bottom: 0;
+  width: 100%;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2 !important;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background: #f1f1f1 !important;
+  color: black !important;
+}
+
+.navbar a.active {
+  background-color: #4CAF50 !important;
+  color: white !important;
+}
