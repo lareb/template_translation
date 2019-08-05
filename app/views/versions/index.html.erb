@@ -9,6 +9,7 @@
   <div class="card mb-4 shadow-sm">
     <div class="card-header">
       <h4 class="my-0 font-weight-normal"><%= @template.title%> - V<%= version.version_number%></h4>
+
     </div>
     <div class="card-body">
       <h1 class="card-title pricing-card-title">V<%= version.version_number%></h1>
@@ -26,6 +27,7 @@
         <%else%>
           <%= link_to 'Preview', template_translation_text_version_path(@template, @translation_text, version), class: 'btn btn-lg btn-block btn-outline-primary mb-6', target: '_blank'%>
         <%end%>
+        <%= link_to 'Diff', diff_template_translation_text_versions_path(@template, @translation_text, {v1: @versions[index-1].try(:id), v2: version.try(:id)}), title: 'difference changes from last version'%>
       </div>
       <!-- <button type="button" class="btn btn-lg btn-block btn-outline-primary">Translate</button> -->
     </div>

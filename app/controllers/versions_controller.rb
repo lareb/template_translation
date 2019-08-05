@@ -17,6 +17,15 @@ class VersionsController < ApplicationController
     render layout: false
   end
 
+  def diff
+    @v1 = @translation_text.versions.find_by(id: params[:v1])
+    @v2 = @translation_text.versions.find_by(id: params[:v2])
+    invalid_version = @v1.try(:id) || @v2.try(:id)
+    if @v1.nil? || @v2.nil?
+      redirect_to template_translation_text_versions_path(@template, @translation_text), notice: "Invalid Version with Id = #{invalid_version}"
+    end
+  end
+
   # # GET /versions/new
   # def new
   #   @version = Version.new

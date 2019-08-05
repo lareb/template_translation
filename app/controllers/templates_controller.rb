@@ -54,10 +54,13 @@ class TemplatesController < ApplicationController
   def update
     # puts "=============345et==========="
     # ap updated_params
+    locales = (params[:template][:locales] || []).join(',')
+    puts "=========saddfsf========"
+    ap locales
     respond_to do |format|
       if @template.update(updated_params)
         # @template.update_translations
-        format.html { redirect_to in_process_template_path(@template, locales: updated_params[:locales].join(',')), notice: 'Template was successfully updated.' }
+        format.html { redirect_to in_process_template_path(@template, {locales: locales} ), notice: 'Template was successfully updated.' }
         format.json { render :show, status: :ok, location: @template }
       else
         format.html { render :edit }
@@ -67,7 +70,7 @@ class TemplatesController < ApplicationController
   end
 
   def update_core_template
-    locales = params[:template][:locales]
+    locales = params[:template][:locales] || []
     respond_to do |format|
       # @translation_text.without_auditing do
       if @template.update(updated_params)
@@ -97,6 +100,7 @@ class TemplatesController < ApplicationController
     def updated_params
       file_data = params[:file]
       new_params = template_params
+
       new_params['locales'] = params[:template][:locales]
       puts "---------without file params-------"
       ap new_params

@@ -40,6 +40,7 @@ gem "google-cloud-translate"
 # gem 'paper_trail'
 gem "audited", "~> 4.9"
 
+gem 'diffy'
 gem 'sidekiq'
 gem 'redis-namespace'
 

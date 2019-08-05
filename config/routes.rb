@@ -9,7 +9,11 @@ Rails.application.routes.draw do
       put 'update_core_template'
     end
     resources :translation_texts, path: :translations do
-      resources :versions
+      resources :versions do
+        collection do
+          get :diff
+        end
+      end
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

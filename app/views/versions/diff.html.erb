@@ -1,0 +1,10 @@
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h2 class="display-8">Difference: V<%= @v1.version_number%> (<small><%= @v1.updated_at.strftime('%b %d, %Y at %I:%M %p')%></small>) & V<%= @v2.version_number%> (<small><%= @v2.updated_at.strftime('%b %d, %Y at %I:%M %p')%></small>)</h2>
+  <p class="lead"></p>
+</div>
+
+<%= Diffy::Diff.new(@v1.html_body, @v2.html_body, include_plus_and_minus_in_html: true, include_diff_info: true).to_s(:html).html_safe%>
+<%#= Diffy::SplitDiff.new(@v1.html_body, @v2.html_body, include_plus_and_minus_in_html: true, format: :html).right.html_safe%>
+<style>
+  <%= Diffy::CSS%>
+</style>

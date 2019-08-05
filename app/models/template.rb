@@ -24,13 +24,15 @@ class Template < ApplicationRecord
   # private
   def create_translation_text(locales)
     puts "-----8*************8--------"
-    begin_background_process = translation_texts.length == 0
-    puts locales
-    puts "=======================#{locales}"
-    locales.each do |locale|
-      trx = translation_texts.create!({local: locale})
-      # trx.translate_texts unless begin_background_process == 0
+
+    if locales.empty?
+      update_translations
+    else
+      locales.each do |locale|
+        trx = translation_texts.create!({local: locale})
+      end
     end
+
   end
 
 end
