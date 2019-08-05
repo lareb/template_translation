@@ -19,7 +19,7 @@ class TranslationText < ApplicationRecord
     # puts "-%%%%%%%%%%%%%%%%%%%%%%%%%%%-"
     # ap job.job_id
     # ap Sidekiq::Queue.new.find_job(job.job_id)
-    update(job_id: job.job_id)
+    # update(job_id: job.job_id)
   end
 
   private

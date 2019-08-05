@@ -1,5 +1,6 @@
 class Version < ApplicationRecord
   belongs_to :translation_text
+  default_scope { order(created_at: :asc) }
 
   after_create_commit :update_version_number
 

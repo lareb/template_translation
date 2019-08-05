@@ -15,7 +15,7 @@
   <div class="d-block my-3">
     <% SUPPORTED_LOCALE.each do |locale|%>
       <div class="custom-control custom-radio">
-        <%= form.radio_button :local, locale[0], class: "custom-control-input", required: "", id: "translation_text_local_#{locale[0]}" %>
+        <%= form.radio_button :local, locale[0], class: "custom-control-input", required: "", id: "translation_text_local_#{locale[0]}", disabled: @template.locales.include?(locale[0].to_s) %>
         <label class="custom-control-label" for="translation_text_local_<%= locale[0]%>"><%= locale[1]%></label>
       </div>
     <% end %>
@@ -32,7 +32,7 @@
   <%= @template.body.html_safe %>
 </div>
 
-
+<!--
 <script type="text/javascript">
   $( document ).ready(function() {
     $('#template_body *').contents().filter(function() {
@@ -51,4 +51,4 @@
     $('#translation_text_template_with_key').val($("#template_body").html());
     $('#translation_text_text_keys').val(JSON.stringify(pair));
   })
-</script>
+</script> -->

@@ -25,6 +25,21 @@
     <label for="file">Template</label> <%= file_field_tag "file", class: 'form-control' %>
   </div>
 
+  <!-- <h4 class="mb-3">Select Language</h4> -->
+  <label for="file">Language</label>
+  <div class="d-block my-3">
+    <% SUPPORTED_LOCALE.each do |locale|%>
+      <div class="custom-control custom-checkbox">
+        <%if @template.locales.include?(locale[0].to_s)%>
+          <input type="checkbox" disabled="disabled" name="template[locales][]" value="<%=locale[0]%>" class="custom-control-input" id='translation_text_local_<%=locale[0]%>'>
+        <%else%>
+          <input type="checkbox" name="template[locales][]" value="<%=locale[0]%>" class="custom-control-input" id='translation_text_local_<%=locale[0]%>'>
+        <%end%>
+        <label class="custom-control-label" for='translation_text_local_<%=locale[0]%>'><%=locale[1]%></label>
+      </div>
+    <% end %>
+  </div>
+  <hr class="mb-4">
   <!-- <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button> -->
   <div class="actions">
     <%= form.submit class: "btn btn-primary btn-lg btn-block"  %>

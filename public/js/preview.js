@@ -14,10 +14,10 @@ $( document ).ready(function() {
     $(key).editable();
   })
 
-  setTimeout(function(){
-    let x = '<div class="navbar"><a href="#home" class="active">Home</a><a href="#news">News</a><a href="#contact">Contact</a></div>';
-    $('body').append(x);
-  }, 500);
+  // setTimeout(function(){
+  //   let x = '<div class="navbar"><a href="#home" class="active">Home</a><a href="#news">News</a><a href="#contact">Contact</a></div>';
+  //   $('body').append(x);
+  // }, 500);
 });
 
 function updateVersion(){
@@ -49,7 +49,13 @@ function saveChanges(method, url){
     dataType: "text",
     success: function(resultData) {
       alert("Save Complete")
-      window.location.reload();
+      if(method == 'PUT'){
+        window.location.reload();
+      }else{
+        let new_url = $("#new_form_url").val();
+        window.location.href = new_url
+      }
+
     }
   });
   saveData.error(function() { alert("Something went wrong"); });

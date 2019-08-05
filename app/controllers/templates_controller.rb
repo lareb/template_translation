@@ -26,17 +26,21 @@ class TemplatesController < ApplicationController
   def edit
   end
 
-  def in_progress
+  def in_process
+    @locales = params[:locales].to_s.split(",") || []
+    # puts "------------------fsfg------------"
+    # ap @locales
+    # @locales = []
   end
 
   # POST /templates
   # POST /templates.json
   def create
     @template = Template.new(updated_params)
-
+    locales = (params[:template][:locales] || []).join(',')
     respond_to do |format|
       if @template.save
-        format.html { redirect_to in_process_template_path(@template), notice: 'Template was successfully created.' }
+        format.html { redirect_to in_process_template_path(@template, {locales: locales}), notice: 'Template was successfully created.' }
         format.json { render :show, status: :created, location: @template }
       else
         format.html { render :new }
@@ -53,7 +57,7 @@ class TemplatesController < ApplicationController
     respond_to do |format|
       if @template.update(updated_params)
         # @template.update_translations
-        format.html { redirect_to in_process_template_path(@template), notice: 'Template was successfully updated.' }
+        format.html { redirect_to in_process_template_path(@template, locales: updated_params[:locales].join(',')), notice: 'Template was successfully updated.' }
         format.json { render :show, status: :ok, location: @template }
       else
         format.html { render :edit }
@@ -63,10 +67,12 @@ class TemplatesController < ApplicationController
   end
 
   def update_core_template
+    locales = params[:template][:locales]
     respond_to do |format|
       # @translation_text.without_auditing do
       if @template.update(updated_params)
-        @template.update_translations
+        # @template.update_translations
+        @template.create_translation_text(locales)
         format.html { redirect_to templates_path, notice: 'Template was successfully updated.' }
         format.json { render :show, status: :ok, location: @template }
       else
@@ -90,8 +96,13 @@ class TemplatesController < ApplicationController
     # read file line
     def updated_params
       file_data = params[:file]
-      return template_params if file_data.blank?
-
+      new_params = template_params
+      new_params['locales'] = params[:template][:locales]
+      puts "---------without file params-------"
+      ap new_params
+      return new_params if file_data.blank?
+      puts "=============FILE PARAMS==============="
+      ap file_data
       if file_data.respond_to?(:read)
         @lines = file_data.read
       elsif file_data.respond_to?(:path)
@@ -100,9 +111,10 @@ class TemplatesController < ApplicationController
         logger.error "Bad file_data: #{file_data.class.name}: # {@filename.inspect}"
       end
       # @lines = params[:template][:full_content]
-      new_params = template_params
+      # new_params = template_params
       new_params['full_content'] = @lines
       new_params['body'] = crop_body(@lines)
+      # new_params['locales'] = params[:template][:locales]
       return new_params
     end
 
@@ -119,6 +131,6 @@ class TemplatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def template_params
-      params.require(:template).permit(:body, :title, :description, :template, :template_with_key, :key_value)
+      params.require(:template).permit(:body, :title, :description, :template, :template_with_key, :key_value, locales: [])
     end
 end

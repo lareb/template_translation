@@ -20,8 +20,14 @@
   <%= form.text_area :template_with_key%>
   <%= form.text_area :key_value%>
 
+  <% @locales.each do |locale|%>
+    <div class="custom-control custom-checkbox">
+      <input type="checkbox" name="template[locales][]" checked="true" value="<%=locale%>" class="custom-control-input" id='translation_text_local_<%=locale%>'>
+      <label class="custom-control-label" for='translation_text_local_<%=locale%>'><%=locale%></label>
+    </div>
+  <% end %>
 
-  <!-- <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button> -->
+
   <div class="actions">
     <%= form.submit class: "btn btn-primary btn-lg btn-block"  %>
   </div>
