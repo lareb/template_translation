@@ -14,12 +14,17 @@
             <span class="display-5"><i class="icon-grid gradient-9-text"></i></span>
             <h2 class="mt-3"><%= template.title.truncate(20)%></h2>
             <p><%= template.updated_at.strftime('%B %d, %Y at %I:%M %p')%></p>
+            <div class="col-lg-12">
             <%= link_to template_translation_texts_path(template), class: 'btn gradient-9 btn-lg border-0 btn-rounded px-5 mb-3' do%>
               <i class="fa fa-language"></i> Templates
             <%end%>
-            <%= link_to template_path(template), class: 'btn gradient-9 btn-lg border-0 btn-rounded px-5 ', method: 'delete' do%>
-              <i class="fa fa-trash"></i>
-            <%end%>
+              
+            </div>
+              <div class="col-lg-12">
+                <%= link_to template_path(template), class: 'btn gradient-9 btn-lg border-0 btn-rounded px-5 ', method: 'delete' do%>
+                  <i class="fa fa-trash"></i>
+                <%end%>
+            </div>
 
             <!-- <a href="javascript:void()" class="btn gradient-9 btn-lg border-0 btn-rounded px-5">Fixnow</a> -->
             <!-- <a href="javascript:void()" class="btn gradient-9 btn-lg border-0 btn-rounded px-5">Fixnow</a> -->
