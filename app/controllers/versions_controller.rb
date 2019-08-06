@@ -12,8 +12,6 @@ class VersionsController < ApplicationController
   # GET /versions/1
   # GET /versions/1.json
   def show
-    # puts "-----------sadfreyeyturr-yt-----"
-    # ap @version
     render layout: false
   end
 
@@ -110,23 +108,6 @@ class VersionsController < ApplicationController
       @translation_text = TranslationText.find(params[:translation_text_id])
     end
 
-    # def surprace_scripts
-    #   start_field = '<!--PREVIEW-FIELDS-->'
-    #   end_field = '<!--/PREVIEW-FIELDS-->'
-    #
-    #   ap version_params[:html_body]
-    #   text = version_params[:html_body][/#{start_field}(.*?)#{end_field}/m, 1]
-    #   chopped_str = version_params[:html_body].chomp(text)
-    #
-    #   start_form = '<!--PREVIEW-FORMS-->'
-    #   end_form = '<!--/PREVIEW-FORMS-->'
-    #   final_text = chopped_str[/#{start_form}(.*?)#{end_form}/m, 1]
-    #   final_chopped_text = chopped_str.chomp(final_text)
-    #   puts "=======================X==============EWRTETE============="
-    #   ap final_chopped_text
-    #   return final_chopped_text
-    # end
-
     def surprace_scripts
       start_field = '<!--PREVIEW-FIELDS-->'
       end_field = '<!--/PREVIEW-FIELDS-->'
@@ -160,11 +141,6 @@ class VersionsController < ApplicationController
 
       scaped_params[:html_body] = surprace_scripts
       puts "00000000000000000000000000000000000"
-      ap scaped_params
-      ap scaped_params[:html_body].index(start_field)
-      ap scaped_params[:html_body].index(end_field)
-      ap scaped_params[:html_body].index(start_form)
-      ap scaped_params[:html_body].index(end_form)
       puts "-------------xxx-----------------"
       return scaped_params
     end

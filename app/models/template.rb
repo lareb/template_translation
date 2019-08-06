@@ -10,10 +10,10 @@ class Template < ApplicationRecord
 
   def update_translations
     puts "------------XXXXXXXXXXXXXXXXXXXX--------------------"
-    ap "After updating template>>>>>"
+    puts "After updating template>>>>>"
 
     locales = translation_texts.select(:local).map(&:local)
-    ap locales
+    puts locales
     locales.each do |locale|
       translation = translation_texts.find_by(local: locale)
       translation.translate_texts

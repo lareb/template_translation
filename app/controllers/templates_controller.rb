@@ -28,9 +28,6 @@ class TemplatesController < ApplicationController
 
   def in_process
     @locales = params[:locales].to_s.split(",") || []
-    # puts "------------------fsfg------------"
-    # ap @locales
-    # @locales = []
   end
 
   # POST /templates
@@ -52,11 +49,8 @@ class TemplatesController < ApplicationController
   # PATCH/PUT /templates/1
   # PATCH/PUT /templates/1.json
   def update
-    # puts "=============345et==========="
-    # ap updated_params
     locales = (params[:template][:locales] || []).join(',')
     puts "=========saddfsf========"
-    ap locales
     respond_to do |format|
       if @template.update(updated_params)
         # @template.update_translations
@@ -103,10 +97,8 @@ class TemplatesController < ApplicationController
 
       new_params['locales'] = params[:template][:locales]
       puts "---------without file params-------"
-      ap new_params
       return new_params if file_data.blank?
       puts "=============FILE PARAMS==============="
-      ap file_data
       if file_data.respond_to?(:read)
         @lines = file_data.read
       elsif file_data.respond_to?(:path)
