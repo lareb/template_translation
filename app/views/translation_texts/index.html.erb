@@ -23,12 +23,12 @@
           </div>
           <div class="card-footer border-0 bg-transparent">
               <div class="row">
-                  <div class="col-6 pt-3">
+                  <div class="col-12 pt-3 text-center">
                     <%= link_to template_translation_text_version_path(@template, translation_text, translation_text.versions.try(:last)), class: "btn gradient-3 btn-lg border-0 btn-rounded px-5" do%>
                       <i class="fa fa-language gradient-1-text" aria-hidden="true"></i> Preview
                     <%end%>
                   </div>
-                  <div class="col-6 pt-3">
+                  <div class="col-12 pt-3 text-center">
                     <%= link_to template_translation_text_versions_path(@template, translation_text), class: "btn gradient-4 btn-lg border-0 btn-rounded px-5" do%>
                       <i class="fa fa-files-o gradient-1-text" aria-hidden="true"></i> <%= translation_text.versions.count%> Versions
                     <%end%>
