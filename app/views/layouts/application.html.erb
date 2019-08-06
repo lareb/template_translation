@@ -39,7 +39,7 @@
             ***********************************-->
             <div class="nav-header">
                 <div class="brand-logo">
-                    <a href="index.html">
+                    <a href="/">
                         <b class="logo-abbr"><img src="/assets/logo.png" alt=""> </b>
                         <span class="logo-compact"><img src="/assets/logo-compact.png" alt=""></span>
                         <span class="brand-title">
@@ -249,11 +249,23 @@
                               <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
                             <%end%>
                         </li>
+
                         <li class="mega-menu mega-menu-sm">
-                          <%= link_to templates_path, class: "has-arrow" do%>
-                            <i class="fa fa-files-o"></i><span class="nav-text">Templates</span>
-                          <%end%>
+                            <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                              <!-- <i class="fa fa-files-o"></i> -->
+                              <i class="fa fa-files-o menu-icon"></i><span class="nav-text">Templates</span>
+                            </a>
+                            <ul aria-expanded="false">
+                                <li>
+                                  <%= link_to 'All Templates',templates_path%>
+                                </li>
+                                <li>
+                                  <%= link_to 'Add One',new_template_path%>
+                                  <!-- <a href="./layout-one-column.html">Add New</a> -->
+                                </li>
+                            </ul>
                         </li>
+
                     </ul>
                 </div>
             </div>
@@ -277,7 +289,7 @@
             ***********************************-->
             <div class="footer">
                 <div class="copyright">
-                    <p>Copyright &copy; Designed & Developed by <a href="https://themeforest.net/user/quixlab">Quixlab</a> 2018</p>
+                    <p>Copyright &copy; Designed & Developed by <a href="#">Lareb Nawab @ Forgeahead.io</a> 2019</p>
                 </div>
             </div>
             <!--**********************************

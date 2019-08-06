@@ -1,7 +1,7 @@
 class VersionsController < ApplicationController
   before_action :set_template
   before_action :set_translation_text
-  before_action :set_version, only: [:show, :edit, :update, :destroy]
+  before_action :set_version, only: [:show, :freez, :edit, :update, :destroy]
 
   # GET /versions
   # GET /versions.json
@@ -23,6 +23,21 @@ class VersionsController < ApplicationController
     invalid_version = @v1.try(:id) || @v2.try(:id)
     if @v1.nil? || @v2.nil?
       redirect_to template_translation_text_versions_path(@template, @translation_text), notice: "Invalid Version with Id = #{invalid_version}"
+    end
+  end
+
+  def freez
+    respond_to do |format|
+      if @version.update({freez: true})
+        @translation_text.update({freez: true})
+        format.js {
+          render status: 200
+        }
+      else
+        format.js {
+          render status: 404
+        }
+      end
     end
   end
 

@@ -7,42 +7,34 @@
 <div class="container-fluid">
 
   <div class="row">
+    <% @versions.each_with_index do |version, index| %>
+      <div class="col-3">
+        <div class="card <%= version.freez ? 'freez-card' : ''%>">
+          <div class="card-body ">
+            <div class="text-center">
+              <span class="display-5">
+                V<%= version.version_number%>
+                <%= version.freez ? '<i class="fa fa-lock gradient-1-text"></i>'.html_safe : ''%>
+              </span>
+              <h2 class="mt-3">Lareb Nawab</h2>
+              <p><%= version.created_at.strftime('%B %d, %Y at %I:%M %p')%></p>
+              <!-- <a href="javascript:void()" class="btn gradient-4 btn-lg border-0 btn-rounded px-5">Redeemnow</a> -->
 
-
-
-
-            <% @versions.each_with_index do |version, index| %>
-
-            <div class="col-3">
-              <div class="card">
-                <div class="card-body">
-                  <div class="text-center">
-                    <span class="display-5">V<%= version.version_number%></span>
-                    <h2 class="mt-3">Lareb Nawab</h2>
-                    <p><%= version.created_at.strftime('%B %d, %Y at %I:%M %p')%></p>
-                    <!-- <a href="javascript:void()" class="btn gradient-4 btn-lg border-0 btn-rounded px-5">Redeemnow</a> -->
-
-                    <%if @translation_text.versions.last.try(:id) == version.id%>
-                      <%= link_to 'Preview', template_translation_text_version_path(@template, @translation_text, version), class: 'btn gradient-4 btn-lg border-0 btn-rounded px-5', target: '_blank'%>
-                    <%else%>
-                      <%= link_to 'Preview', template_translation_text_version_path(@template, @translation_text, version), class: 'btn gradient-4 btn-lg border-0 btn-rounded px-5', target: '_blank'%>
-                    <%end%>
-                    <%= link_to diff_template_translation_text_versions_path(@template, @translation_text, {v1: @versions[index-1].try(:id), v2: version.try(:id)}), class: 'btn gradient-4 btn-lg border-0 btn-rounded px-5' ,title: 'difference changes from last version' do%>
-                      <i class="fa fa-files-o gradient-1-text"></i> Diff
-                    <%end%>
-
-
-                  </div>
-                </div>
-              </div>
+              <%if @translation_text.versions.last.try(:id) == version.id%>
+                <%= link_to 'Preview', template_translation_text_version_path(@template, @translation_text, version), class: 'btn gradient-3 btn-lg border-0 btn-rounded px-5', target: '_blank'%>
+              <%else%>
+                <%= link_to 'Preview', template_translation_text_version_path(@template, @translation_text, version), class: 'btn gradient-3 btn-lg border-0 btn-rounded px-5', target: '_blank'%>
+              <%end%>
+              <%= link_to diff_template_translation_text_versions_path(@template, @translation_text, {v1: @versions[index-1].try(:id), v2: version.try(:id)}), class: 'btn gradient-8 btn-lg border-0 btn-rounded px-5' ,title: 'difference changes from last version' do%>
+                <i class="fa fa-files-o gradient-1-text"></i> Diff
+              <%end%>
             </div>
-
-
-            <% end %>
-
-
-    </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
+</div>
 
 
   <%= link_to template_translation_texts_path(@template), class: 'btn btn-primary btn-circle btn-xl add-new-template' do %>

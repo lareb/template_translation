@@ -18,16 +18,14 @@ class TranslationJob < ApplicationJob
       full_html = replace_placeholder(template, translated_template)
       puts "=======================fdgdd============= Count = #{translation_text.versions.count}"
       ap full_html
-      # if translation_text.versions.count == 0
-      #   translation_text.update({key_value: translated_blob, template_body: full_html, create_new_version: true})
-      # else
       translation_text.update({key_value: translated_blob, template_body: full_html, create_new_version: create_new_version})
-      # end
-      # end
     rescue Exception => e
+      # Record error here for each and every translation
+      # Reflect error if any
       puts "===================="
       ap e
       ap e.message
+      # translation_text.update({error_message: e.message})
     end
   end
 

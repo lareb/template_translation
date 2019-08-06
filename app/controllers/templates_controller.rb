@@ -76,7 +76,7 @@ class TemplatesController < ApplicationController
       if @template.update(updated_params)
         # @template.update_translations
         @template.create_translation_text(locales)
-        format.html { redirect_to templates_path, notice: 'Template was successfully updated.' }
+        format.html { redirect_to template_translation_texts_path(@template), notice: 'Template was successfully updated.' }
         format.json { render :show, status: :ok, location: @template }
       else
         format.html { render :edit }

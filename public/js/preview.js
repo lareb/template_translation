@@ -20,6 +20,18 @@ $( document ).ready(function() {
   // }, 500);
 });
 
+function freezVersion(){
+  let freez_url = $("#freez_version_url").val();
+  // saveChanges('PUT', edit_url);
+  let r = confirm("Are you sure, you want to freez this version?");
+  if (r == true) {
+    ajaxCall('PUT', freez_url, {});
+  }
+  console.log("==========adff========")
+
+}
+
+
 function updateVersion(){
   let edit_url = $("#edit_form_url").val();
   saveChanges('PUT', edit_url);
@@ -41,6 +53,11 @@ function saveChanges(method, url){
         html_body: body
       }
   }
+
+  ajaxCall(method, url, data);
+}
+
+function ajaxCall(method, url, data){
   var saveData = $.ajax({
     type: method,
     beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content') ) },
@@ -59,7 +76,6 @@ function saveChanges(method, url){
     }
   });
   saveData.error(function() { alert("Something went wrong"); });
-
 }
 
 function getHTML(){

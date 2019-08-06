@@ -15,6 +15,10 @@
 @import "pg-calendar/css/*";
 @import "*";
 
+.freez-card{
+  background-color: #bcbcbc !important;
+}
+
 .btn-circle.btn-xl {
     width: 70px;
     height: 70px;
@@ -41,7 +45,7 @@
 .add-new-template i{
   margin-top: 12px !important;
 }
-#main-wrapper { 
+#main-wrapper {
  opacity: 1 !important;
  }
  .nav-header .brand-logo a {

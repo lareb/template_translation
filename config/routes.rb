@@ -13,6 +13,9 @@ Rails.application.routes.draw do
         collection do
           get :diff
         end
+        member do
+          put :freez
+        end
       end
     end
   end
