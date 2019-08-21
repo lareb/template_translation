@@ -111,7 +111,7 @@ function generatePDF(url, download_url){
         console.log(resultData, "=============543564")
         setTimeout(function(){
           window.location.href = download_url
-        }, 5000)
+        }, 8000)
       }
     });
     saveData.error(function(x) {
