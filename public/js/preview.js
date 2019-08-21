@@ -3,9 +3,9 @@
 $( document ).ready(function() {
   // $.fn.editable.defaults.mode = 'inline'
 
-  $("span.translation").map(function(index, key){
+  $("span.translation-required").map(function(index, key){
     let originalText = $(key).text();
-    console.log(index, originalText.length);
+    // console.log(index, originalText.length);
     let dataType = 'text';
     if(originalText.length > 50){
       dataType = 'textarea';
@@ -92,3 +92,52 @@ var getDocTypeAsString = function () {
          + (node.systemId ? ' "' + node.systemId + '"' : '')
          + '>\n' : '';
 };
+
+// initiate pdf generation
+// var myInterval;
+function generatePDF(url, download_url){
+
+  prepareImage().then(function(imageData){
+    let docHeight = $("#parent").height();
+    let docWidth = $("#parent").width();
+
+    var saveData = $.ajax({
+      type: 'POST',
+      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content') ) },
+      url: url,
+      data: {image: imageData, docHeight: docHeight, docWidth: docWidth},
+      dataType: "text",
+      success: function(resultData) {
+        console.log(resultData, "=============543564")
+        setTimeout(function(){
+          window.location.href = download_url
+        }, 5000)
+      }
+    });
+    saveData.error(function(x) {
+      console.log(x, "============356464============")
+      alert("Something went wrong");
+    });
+
+  })
+}
+
+function stopFunction(){
+    clearInterval(myInterval); // stop the timer
+}
+// https://openlayers.org/en/latest/examples/export-pdf.html
+// https://gist.github.com/shrikanthkr/10097999
+function prepareImage(){
+  $("div.navbar").hide();
+  $("#parent").html('');
+  let baseImage = html2canvas(document.body).then(function(canvas) {
+      // Export the canvas to its data URI representation
+      var base64image = canvas.toDataURL("image/png");
+      var pHtml = "<img src="+base64image+" />";
+      $("#parent").append(pHtml);
+      return base64image;
+  });
+
+  $("div.navbar").show();
+  return baseImage;
+}

@@ -1,7 +1,7 @@
 class VersionsController < ApplicationController
   before_action :set_template
   before_action :set_translation_text
-  before_action :set_version, only: [:show, :freez, :edit, :update, :destroy]
+  before_action :set_version, only: [:show, :freez, :pdf, :download, :edit, :update, :destroy]
 
   # GET /versions
   # GET /versions.json
@@ -38,6 +38,27 @@ class VersionsController < ApplicationController
       end
     end
   end
+
+  def pdf
+    puts "================xxxx====================#{params[:docWidth]}x#{ params[:docHeight]}"
+    data_url = params[:image]
+
+    file_name = "#{@template.title.parameterize}-#{@translation_text.local}-#{@version.version_number}"
+
+    png = Base64.decode64(data_url['data:image/png;base64,'.length .. -1])
+    File.open("#{Rails.root}/public/pdfs/#{file_name}.png", 'wb') { |f| f.write(png) }
+
+    # PdfGenerationJob.perform_later(@version, "#{template_translation_text_version_url(@template, @translation_text, @version)}", "#{Rails.root}/public/pdfs/#{file_name}")
+    PdfGenerationJob.perform_later(@version, "#{ENV['APP_URL']}/pdfs/#{file_name}.png" , "#{Rails.root}/public/pdfs/#{file_name}.pdf",params[:docWidth], params[:docHeight] )
+    render json: {download_path: "/pdfs/#{file_name}.pdf"}
+    # redirect_to template_translation_text_version_url(@template, @translation_text, @version), notice: 'PDF file will be available soon'
+ end
+
+ def download
+   file_name = "#{@template.title.parameterize}-#{@translation_text.local}-#{@version.version_number}.pdf"
+   send_file "#{Rails.root}/public/pdfs/#{file_name}"
+ end
+
 
   # # GET /versions/new
   # def new

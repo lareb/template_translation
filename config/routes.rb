@@ -15,6 +15,8 @@ Rails.application.routes.draw do
         end
         member do
           put :freez
+          post :pdf
+          get :download
         end
       end
     end

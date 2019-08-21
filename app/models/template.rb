@@ -1,5 +1,6 @@
 class Template < ApplicationRecord
   attr_accessor :locales
+  default_scope { order(updated_at: :desc) }
   has_many :translation_texts, dependent: :destroy
 
   # after_save :create_translation_text

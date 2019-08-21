@@ -1,0 +1,1219 @@
+
+@font-face {
+    font-family: DaxOT-Reg;
+    src: url(../fonts/DaxOT.otf);
+}
+@font-face {
+    font-family: DaxOT-Med;
+    src: url(../fonts/DaxOT-Medium.otf);
+}
+@font-face {
+    font-family: DaxOT-Bold;
+    src: url(../fonts/DaxOT-Bold.otf);
+}
+
+*{ font-size:14px;   font-family: DaxOT-Reg; color:#2b2b2b;}
+body {    background: #fff; }
+body::-webkit-scrollbar:horizontal {
+    height: 12px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+}
+
+header{width: 100%;float: left;}
+section{width: 100%;float: left;}
+
+.regPera{width: 100%;float: left; color:#2b2b2b; margin-bottom:24px; line-height:24px;}
+.boldPera{   font-family: DaxOT-Bold;} 
+.comnHead { width: 100%;float: left;  font-family: DaxOT-Bold; font-size:18px; margin:10px 0 12px 0;} 
+.sprightPera{ position: absolute;    left: 0px;}
+.wFull{width: 100%;float: left;}
+.peraPad{padding-left: 30px;    position: relative;}
+.headlogo{float: left; position:absolute; left:0; top:0;} 
+.plaMainHead{ position:relative; text-align:center; color:#2b2b2b; font-family: DaxOT-Bold; font-size:36px; margin:40px 0;}
+
+.headBox{ width: 100%;float: left;  font-family: DaxOT-Bold; font-size:20px; padding:20px 15px; background-color:#448aff; color:#FFF; text-align:center; margin:0 0 30px 0;}
+.ktcBox{ width: 100%;float: left; border:1px solid #d6d6d6; border-radius:5px; margin-bottom:30px;}
+.ktcBoxHead{border-radius: 5px 5px 0 0; width: 100%;float: left; background-color:#f2f2f2; color:#2b2b2b; font-family: DaxOT-Bold; font-size:16px;  padding:20px; margin:0;}
+.ktcBoxHead span{background-color:#f2f2f2; color:#2b2b2b; font-family: DaxOT-Bold; font-size:18px;  padding-right:20px; margin:0;}
+.ktcBoxPera{width: 100%;float: left; color:#2b2b2b; margin-bottom:0px; line-height:24px; padding:10px 20px 15px 20px;}
+.ktcBoxList{width: 100%;float: left; margin:0; padding:0;}
+.ktcBoxList li{list-style-position: inside;}
+
+.ktcBoxList1{width: 100%;float: left; margin:0; padding:0;}
+.ktcBoxList1 li{list-style:none;}
+
+
+.charMainHead{ width: 100%;float: left;  font-family: DaxOT-Bold; font-size:16px; color:#2b2b2b; margin:15px 0 10px 0;  }
+.charPeraTxt{width: 100%; float: left; color:#2b2b2b; margin-bottom:10px; line-height:24px; }
+.charSubHead1{width: auto; float: left; color:#2b2b2b; margin-bottom:0px; line-height:24px; font-family: DaxOT-Bold;}
+.charDots{ padding:0 5px;}
+
+
+.schBox{ width: 100%;float: left; border:1px solid #d6d6d6; border-radius:5px; margin-bottom:30px;}
+.schSubBox1{border-radius: 5px 5px 0 0; width: 100%;float: left;  background-color:#f2f2f2; padding:20px;}
+.schSubBox{width: 100%;float: left;  background-color:#fff; padding:20px;}
+.schHeadSub{width: 70%;float: left;  font-family: DaxOT-Bold; font-size:16px; margin-bottom:20px;}
+.schHeadSubDots{float: right; padding:0 15px;}
+.schAnsTxt{width: 30%;float: left;  margin-bottom:20px; }
+
+.detHeadSub{width: 45%;float: left;  margin-bottom:20px;  font-family: DaxOT-Med;}
+.detHeadSubDots{float: right; padding:0 15px;}
+.detAnsTxt{width: 55%;float: left;  margin-bottom:20px; }
+
+.schedHeadSub{width: 45%;float: left;  margin-bottom:20px; min-height:45px;  font-family: DaxOT-Med;}
+.schedHeadSubDots{float: left; position:absolute; left:15px; top:0;}
+.schedAnsTxt{width: 55%;float: left;  margin-bottom:20px; padding-left:30px; position:relative; min-height:45px;}
+
+.ldmMainHead{ width: 100%;float: left; color:#2b2b2b; font-family: DaxOT-Bold; font-size:16px;  margin: 0 0 20px 0;}
+.ldmHeadSub{width: 45%;float: left;  margin-bottom:20px;  padding-left:24px; position:relative;  min-height:45px;  font-family: DaxOT-Med;} 
+.ldmHeadSubDots{float: left; position:absolute; left:15px; top:0;}
+.ldmHeadSubNum{float: left; position:absolute; left:0px; top:0;}
+.ldmAnsTxt{width: 55%;float: left;  margin-bottom:20px; padding-left:30px; position:relative; min-height:45px;}
+.ldmHeadSub1{width: 45%;float: left;  margin-bottom:20px;  padding-left:24px; position:relative;   font-family: DaxOT-Med;}
+.ldmAnsTxt1{width: 55%;float: left;  margin-bottom:20px; padding-left:30px; position:relative; }
+
+
+.ekycHeadSub{width: 45%;float: left;}
+.ekycChBox{width: 55%;float: left;  }
+
+
+
+
+ ::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+ 
+::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .4);
+    border-radius: 0px;
+    border: 0px solid #ffffff;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 0px;  
+    background-color: #f2f2f2; 
+}
+
+
+.table-scroll {
+	position:relative;
+ 	margin:auto;
+	overflow:hidden;
+	max-width:1196px;
+}
+.table-wrap {
+	width:100%;
+	overflow:auto;
+}
+.table-scroll table {
+	width:100%;
+	margin:auto;
+	border-collapse:separate;
+	border-spacing:0;
+}
+.table-scroll th {
+	padding:10px 10px 10px 0px;
+	background:#fff;
+	white-space:nowrap;
+	vertical-align:top;
+	
+}
+ .table-scroll td {
+	padding:10px;
+	background:#fff;
+	white-space:nowrap;
+	vertical-align:top;
+}
+.table-scroll thead, .table-scroll tfoot {
+ 
+}
+.clone {
+	position:absolute;
+	top:0;
+	left:0;
+	pointer-events:none;
+}
+.clone th, .clone td {
+	visibility:hidden
+}
+.clone td, .clone th {
+	border-color:transparent
+}
+.clone tbody th {
+	visibility:visible;
+	color:red;
+}
+.clone .fixed-side {	 	visibility:visible;}
+.clone thead, .clone tfoot{background:transparent;}
+
+.main-table tbody tr{ border-bottom:1px solid #d6d6d6;     float: left;    width: 100%;}
+.main-table tbody th{  min-width:182px; color:#2b2b2b;   font-family: DaxOT-Bold; font-size:14px; }
+.main-table tbody td{  min-width:182px; color:#2b2b2b;   font-family: DaxOT-Reg;   font-size:14px;} 
+.noBod{ border:none !important;}
+
+
+.main-table1 tbody tr{ border-bottom:1px solid #d6d6d6;     float: left;    width: 100%;}
+.main-table1 tbody th{min-width:350px; padding:10px;   color:#2b2b2b;   font-family: DaxOT-Bold; font-size:14px; white-space: normal;}
+.main-table1 tbody td{min-width:350px; color:#2b2b2b;   font-family: DaxOT-Reg;   font-size:14px;} 
+
+.main-table2 tbody tr{border-bottom:none;      float: left;    width: 100%;}
+.main-table2 tbody th{min-height:100px; border:1px solid #d6d6d6;  padding:10px;   float:left;   color:#2b2b2b;   font-family: DaxOT-Bold; font-size:14px; white-space: normal;}
+.main-table2 tbody td{min-height:100px; border:1px solid #d6d6d6;  padding:10px;   float:left;   color:#2b2b2b;   font-family: DaxOT-Reg;   font-size:14px; white-space: normal;} 
+
+.main-table2{border-collapse: collapse; }
+.main-table3{border-collapse: collapse;}
+
+.main-table3 tbody tr{border-bottom:none;     float: left;    width: 100%;}
+.main-table3 tbody th{ min-height:100px; border:1px solid #d6d6d6;   padding:10px;   float:left; color:#2b2b2b;   font-family: DaxOT-Bold; font-size:14px; white-space: normal;}
+.main-table3 tbody td{min-height:100px; border:1px solid #d6d6d6;  padding:10px;   float:left;  color:#2b2b2b;   font-family: DaxOT-Reg;   font-size:14px; white-space: normal;} 
+
+.width40{ width:40%;}
+.width60{width:60%;}
+
+
+
+
+
+.mainFormCon{float: left;width: 100%;}
+.oneform{float: left;width: 100%;border: 1px solid #d6d6d6; border-radius:5px; margin-bottom:22px;}
+.titlediv{float: left;width: 100%; padding: 4px 20px; cursor: pointer; border-radius:5px;}
+.titlediv>h4{font-size: 16px;font-family: DaxOT-Bold;color: #000;float: left;}
+.titlediv>img{float: right;padding: 12px 0px;width: 15px;}
+.TitleAnsPart{float: left;width: 100%;padding: 0px;display: block;display: none;}
+
+
+.accPeraDefault{ float:left; width: 100%; color:#2b2b2b; font-family: DaxOT-Reg; margin-bottom:10px;}
+
+.accPeraDefault1{ float:left; width: 100%; color:#2b2b2b; font-family: DaxOT-Reg; margin-bottom:10px; position:relative; padding-left:30px;}
+.abcdPoints{color:#2b2b2b; font-family: DaxOT-Reg;  position: absolute; left:0; top:0;}
+
+
+.daPeraDefault1{ float:left; width: 100%; color:#2b2b2b; margin-bottom:10px; position:relative; padding-left:30px;}
+.daNumPoints{color:#2b2b2b;   position: absolute; left:0; top:0;}
+.insideTxt{ padding-left:30px;}
+
+
+
+
+
+.boldTxts{font-family: DaxOT-Bold !important; }
+
+
+
+.acceptBtn {
+    background: #ff9500;
+    width: 165px;
+    height: 40px;
+    color: #fff;
+	border-radius:5px;
+	border:none;
+	margin:0 15px;
+}
+.disBtn {
+    background: #ff9500;
+    width: 165px;
+    height: 40px;
+    color: #fff;
+	border-radius:5px;
+	border:none;
+	margin:0 15px;
+}
+
+.btnsPart{ width:100%; float:left; text-align:center; margin-bottom:30px;}
+
+
+.headFontMed{font-family: DaxOT-Med;}
+.bodFull{ background-color:#d6d6d6; width: 100%;float: left; height:1px; margin-bottom:10px;}
+
+.tcBox{ margin-bottom:20px;}
+.chBdy{ width:100% !important;}
+.checkbox {
+    padding-left: 20px;
+	float:left;
+	width:100px;
+	margin-top:7px !important;
+}
+.checkbox label {
+    display: inline-block;
+    position: relative;
+    padding-left: 10px;
+}
+.checkbox label::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    left: 0;
+    margin-left: -20px;
+    border: 2px solid #757575;
+    border-radius: 3px;
+    background-color: #fff;
+    -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+    -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+    transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.tcBox label::after {
+    display: inline-block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 0;
+    top: 0px !important;
+    margin-left: -20px;
+    padding-left: 3px;
+    padding-top: 1px;
+    font-size: 11px;
+    color: #757575;
+    background: none;
+}
+
+.checkbox label::after {
+    display: inline-block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 0;
+    top: -4px;
+    margin-left: -20px;
+    padding-left: 3px;
+    padding-top: 1px;
+    font-size: 11px;
+    color: #757575;
+    background: none;
+}
+.checkbox input[type="checkbox"] {
+    opacity: 0;
+}
+.checkbox input[type="checkbox"]:focus+label::before {
+    outline: thin dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+.checkbox input[type="checkbox"]:checked+label::after {
+    font-family: 'Glyphicons Halflings';
+    content: "\e013";
+}
+.checkbox input[type="checkbox"]:disabled+label {
+    opacity: 0.65;
+}
+.checkbox input[type="checkbox"]:disabled+label::before {
+    background-color: #eeeeee;
+    cursor: not-allowed;
+}
+.checkbox.checkbox-circle label::before {
+    border-radius: 50%;
+}
+.checkbox.checkbox-inline {
+    margin-top: 0;
+}
+.checkbox-primary input[type="checkbox"]:checked+label::before {
+    background-color: #428bca;
+    border-color: #428bca;
+}
+.checkbox-primary input[type="checkbox"]:checked+label::after {
+    color: #fff;
+}
+.checkboxtext {
+    width: 95%;
+    float: left;
+    margin-bottom: 0;
+    margin-top: 7px;
+    margin-left: 10px;
+}
+ 
+ 
+ 
+ 
+.modal-content {    float: left;}
+.btnClose {
+    z-index: 1;
+    top: 0px;
+    right: 5px;
+    font-size: 30px;
+    position: absolute;
+}
+.popBdy {
+    float: left;
+    width: 100%;
+    padding: 0;
+    position: relative;
+}
+.detBoxHBdy {
+    float: left;
+    width: 100%;
+    border-radius: 5px 5px 0px 0px;
+    background-color: #f1f1f1;
+    padding: 10px 25px;
+    border-right: 1px solid #d6d6d6;
+}
+.detBoxDecHTxtPop {
+    float: left;
+    width: 90%;
+    color: #1f2520;
+    font-size: 16px;
+    font-family: DaxOT-Med;
+    margin: 0;
+}
+.detBoxValHTxtPop {
+    float: left;
+    width: 10%;
+    color: #1f2520;
+    font-size: 16px;
+    font-family: DaxOT-Med;
+    margin: 0;
+}
+.findComDetListPop {
+    float: left;
+    width: 100%;
+    padding: 15px 25px 25px 25px;
+    margin: 0;
+}
+.findComDetListPop li {
+    float: left;
+    width: 100%;
+    padding: 10px 0px;
+    margin: 0;
+    border-bottom: 1px solid #d6d6d6;
+    list-style: none;
+}
+.fCoDetLeftPop {
+    float: left;
+    width: 90%;
+    color: #1f2520;
+    font-size: 14px;
+    font-family: DaxOT-Reg;
+    margin: 0;
+}
+.fCoDetRightPop {
+    float: left;
+    width: 10%;
+    color: #1f2520;
+    font-size: 14px;
+    font-family: DaxOT-Reg;
+    margin: 0;
+}
+
+.conChk {
+    width: 25px;
+    float: right;
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.conChk input {
+    position: absolute;
+    opacity: 0;
+}
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #DDD;
+}
+
+.conChk:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+
+/* When the checkbox is checked, add a blue background */
+
+.conChk input:checked~.checkmark {
+    background-color: #448aff;
+}
+
+
+/* Create the checkmark/indicator (hidden when not checked) */
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+
+/* Show the checkmark when checked */
+
+.conChk input:checked~.checkmark:after {
+    display: block;
+}
+
+
+/* Style the checkmark/indicator */
+
+.conChk .checkmark:after {
+    left: 9px;
+    top: 4px;
+    width: 8px;
+    height: 14px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.other-Txtbox {
+    float: left;
+    width: 100%;
+    padding: 0px 25px 25px 25px;
+    display: none;
+}
+
+.txtother {
+    float: left;
+    height: 32px;
+    width: 100%;
+    border-radius: 3px;
+    box-shadow: none;
+    border: 1px solid #d6d6d6;
+    color: #1f2520;
+    font-size: 14px;
+    font-family: DaxOT-Reg;
+    padding: 5px 10px;
+}
+textarea, input, button {
+    outline: 0;
+}
+
+.error {
+    color: red;
+    display: none;
+    font-size: 14px;
+    font-family: DaxOT-Reg;
+    font-weight: normal;
+    margin-top: 10px;
+}
+
+.btnSubmitPop {
+    float: left;
+    width: 126px;
+    border: 0;
+    position: relative;
+    left: 50%;
+    margin-left: -63px;
+    margin-bottom: 20px;
+    background-color: #448aff;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+    color: #FFF;
+    font-size: 16px;
+    font-family: DaxOT-Med;
+}
+
+ 
+ #reasonmodal{ padding-left:0 !important;}
+ 
+ 
+ 
+ 
+
+
+@font-face {
+    font-family: DaxOT-Reg;
+    src: url(../fonts/DaxOT.otf);
+}
+@font-face {
+    font-family: DaxOT-Med;
+    src: url(../fonts/DaxOT-Medium.otf);
+}
+@font-face {
+    font-family: DaxOT-Bold;
+    src: url(../fonts/DaxOT-Bold.otf);
+}
+
+*{ font-size:14px;   font-family: DaxOT-Reg; color:#2b2b2b;}
+body {    background: #fff; }
+body::-webkit-scrollbar:horizontal {
+    height: 12px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+}
+
+ 
+
+.regPera{width: 100%;float: left; color:#2b2b2b; margin-bottom:24px; line-height:24px;}
+.boldPera{   font-family: DaxOT-Bold;} 
+.comnHead { width: 100%;float: left;  font-family: DaxOT-Bold; font-size:18px; margin:10px 0 12px 0;} 
+.sprightPera{ position: absolute;    left: 0px;}
+.wFull{width: 100%;float: left;}
+.peraPad{padding-left: 30px;    position: relative;}
+.headlogo{float: left; position:absolute; left:0; top:0;} 
+.plaMainHead{ position:relative; text-align:center; color:#2b2b2b; font-family: DaxOT-Bold; font-size:36px; margin:40px 0;}
+
+.headBox{ width: 100%;float: left;  font-family: DaxOT-Bold; font-size:20px; padding:20px 15px; background-color:#448aff; color:#FFF; text-align:center; margin:0 0 30px 0;}
+.ktcBox {
+    width: 100%;
+    float: left;
+    border: 1px solid #d6d6d6;
+    border-radius: 0px;
+    margin-bottom: 30px;
+}
+.ktcBoxHead{border-radius: 5px 5px 0 0; width: 100%;float: left; background-color:#f2f2f2; color:#2b2b2b; font-family: DaxOT-Bold; font-size:16px;  padding:20px; margin:0;}
+.ktcBoxHead span{background-color:#f2f2f2; color:#2b2b2b; font-family: DaxOT-Bold; font-size:18px;  padding-right:20px; margin:0;}
+.ktcBoxPera {
+    width: 100%;
+    float: left;
+    color: #2b2b2b;
+    margin-bottom: 0px;
+    line-height: 24px;
+}
+.ktcBoxList{width: 100%;float: left; margin:0; padding:0;}
+.ktcBoxList li{list-style-position: inside;}
+
+.ktcBoxList1{width: 100%;float: left; margin:0; padding:0;}
+.ktcBoxList1 li{list-style:none;}
+
+
+
+.charMainHead{ width: 100%;float: left;  font-family: DaxOT-Bold; font-size:16px; color:#2b2b2b; margin:0 0 10px 0;  }
+.charPeraTxt{width: 100%; float: left; color:#2b2b2b; margin-bottom:10px; line-height:24px; }
+.charSubHead1{width: auto; float: left; color:#2b2b2b; margin-bottom:0px; line-height:24px; font-family: DaxOT-Bold;}
+.charDots{ padding:0 5px;}
+
+
+.schBox{ width: 100%;float: left; border:1px solid #d6d6d6; border-radius:5px; margin-bottom:30px;}
+.schSubBox1{border-radius: 5px 5px 0 0; width: 100%;float: left;  background-color:#f2f2f2; padding:20px;}
+.schSubBox{width: 100%;float: left;  background-color:#fff; padding:20px;}
+.schHeadSub{width: 70%;float: left;  font-family: DaxOT-Bold; font-size:16px; margin-bottom:20px;}
+.schHeadSubDots{float: right; padding:0 15px;}
+.schAnsTxt{width: 30%;float: left;  margin-bottom:20px; }
+
+.detHeadSub{width: 45%;float: left;  margin-bottom:20px;  font-family: DaxOT-Med;}
+.detHeadSubDots{float: right; padding:0 15px;}
+.detAnsTxt{width: 55%;float: left;  margin-bottom:20px; }
+
+.schedHeadSub{width: 45%;float: left;  margin-bottom:20px; min-height:45px;  font-family: DaxOT-Med;}
+.schedHeadSubDots{float: left; position:absolute; left:15px; top:0;}
+.schedAnsTxt{width: 55%;float: left;  margin-bottom:20px; padding-left:30px; position:relative; min-height:45px;}
+
+.ldmMainHead{ width: 100%;float: left; color:#2b2b2b; font-family: DaxOT-Bold; font-size:16px;  margin: 0 0 20px 0;}
+.ldmHeadSub{width: 45%;float: left;  margin-bottom:20px;  padding-left:24px; position:relative;  min-height:45px;  font-family: DaxOT-Med;} 
+.ldmHeadSubDots{float: left; position:absolute; left:15px; top:0;}
+.ldmHeadSubNum{float: left; position:absolute; left:0px; top:0;}
+.ldmAnsTxt{width: 55%;float: left;  margin-bottom:20px; padding-left:30px; position:relative; min-height:45px;}
+.ldmHeadSub1{width: 45%;float: left;  margin-bottom:20px;  padding-left:24px; position:relative;   font-family: DaxOT-Med;}
+.ldmAnsTxt1{width: 55%;float: left;  margin-bottom:20px; padding-left:30px; position:relative; }
+
+
+.ekycHeadSub{width: 45%;float: left;}
+.ekycChBox{width: 55%;float: left;  }
+
+
+
+
+ ::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+ 
+::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .4);
+    border-radius: 8px;
+    border: 2px solid #ffffff;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;  
+    background-color: #ffffff; 
+}
+
+
+.table-scroll {
+	position:relative;
+ 	margin:auto;
+	overflow:hidden;
+	max-width:1196px;
+}
+.table-wrap {
+	width:100%;
+	overflow:auto;
+}
+.table-scroll table {
+	width:100%;
+	margin:auto;
+	border-collapse:separate;
+	border-spacing:0;
+}
+.table-scroll th {
+	padding:10px 10px 10px 0px;
+	background:#fff;
+	white-space:nowrap;
+	vertical-align:top;
+	
+}
+ .table-scroll td {
+	padding:10px;
+	background:#fff;
+	white-space:nowrap;
+	vertical-align:top;
+}
+.table-scroll thead, .table-scroll tfoot {
+ 
+}
+.clone {
+	position:absolute;
+	top:0;
+	left:0;
+	pointer-events:none;
+}
+.clone th, .clone td {
+	visibility:hidden
+}
+.clone td, .clone th {
+	border-color:transparent
+}
+.clone tbody th {
+	visibility:visible;
+	color:red;
+}
+.clone .fixed-side {	 	visibility:visible;}
+.clone thead, .clone tfoot{background:transparent;}
+
+.main-table tbody tr{ border-bottom:1px solid #d6d6d6;     float: left;    width: 100%; }
+.main-table tbody th{  width:60px; color:#2b2b2b;   font-family: DaxOT-Bold; font-size:14px; padding:10px;}
+.main-table tbody .smcols {
+    white-space: normal;
+    min-width: 450px;
+    color: #2b2b2b;
+    font-family: DaxOT-Reg;
+    font-size: 14px;
+	padding:10px;
+}
+.main-table tbody .bigcols {
+    white-space: normal;
+    min-width: 590px;
+    color: #2b2b2b;
+    font-family: DaxOT-Reg;
+    font-size: 14px;
+	padding:10px;
+}
+.noBod{ border:none !important;}
+.boldPera {    font-family: DaxOT-Bold !important;}
+.widBotFull {    width: 100%;    float: left;}
+
+
+.main-table6 tbody tr{ border-bottom:1px solid #d6d6d6;     float: left;    width: 100%; }
+.main-table6 tbody th{  width:60px; min-width: 182px; color:#2b2b2b;   font-family: DaxOT-Bold; font-size:14px; padding:10px;}
+.main-table6 tbody td{  width:60px; min-width: 182px; color: #2b2b2b; font-family: DaxOT-Reg; font-size: 14px; padding:10px;}
+
+
+
+
+
+.main-table5 tbody tr{ border-bottom:1px solid #d6d6d6;     float: left;    width: 100%;}
+.main-table5 tbody th{ float:left; width:33.33%; text-align:center; color:#2b2b2b;   font-family: DaxOT-Bold; font-size:14px; white-space: normal; padding:10px;}
+.main-table5 tbody .smcols {
+    white-space: normal;
+	 float:left;
+   width:33.33%;
+    text-align:center;
+    color: #2b2b2b;
+    font-family: DaxOT-Reg;
+    font-size: 14px;
+	padding:10px;
+} 
+
+/*
+.main-table1 tbody tr{ border-bottom:1px solid #d6d6d6;     float: left;    width: 100%;}
+.main-table1 tbody th{min-width:60px; color:#2b2b2b;   font-family: DaxOT-Bold; font-size:14px; white-space: normal; padding:10px;}
+.main-table1 tbody .smcols {
+    white-space: normal;
+    min-width: 450px;
+    max-width: 450px;
+    color: #2b2b2b;
+    font-family: DaxOT-Reg;
+    font-size: 14px;
+	padding:10px;
+}
+.main-table1 tbody .bigcols {
+    white-space: normal;
+    min-width: 580px;
+    max-width: 580px;
+    color: #2b2b2b;
+    font-family: DaxOT-Reg;
+    font-size: 14px;
+	padding:10px;
+}
+
+
+.main-table1 tbody .padL60 {
+    padding: 0 0 0 70px;
+    float: left;
+    width: 100%;
+}
+.main-table1 tbody .padL60 .wFull .smcols {
+    padding: 10px 20px 10px 0;
+    margin-bottom: 0;
+    float: left;
+    width: auto;
+    white-space: normal;
+    min-width: 450px;
+    max-width: 450px;
+    color: #2b2b2b;
+    font-family: DaxOT-Reg;
+    font-size: 14px;
+}
+.main-table1 tbody .padL60 .wFull .bigcols {
+    padding: 10px 20px 10px 0;
+    margin-bottom: 0;
+    float: left;
+    width: auto;
+    white-space: normal;
+    min-width: 600px;
+    max-width: 600px;
+    color: #2b2b2b;
+    font-family: DaxOT-Reg;
+    font-size: 14px;
+}*/
+.padLeft25 {    padding-left: 25px !important;}
+
+.trPerentBox .leftSpaces {    padding-left: 70px;}
+.trPerentBox .leftSpacesSub {    padding-left: 30px;    width: 100%;    float: left;}
+
+.main-table2 tbody tr {
+    border-bottom: 1px solid #d6d6d6;
+    float: left;
+    width: 100%;
+}
+.main-table2 tbody th {
+    min-width: 182px;
+    max-width: 182px;
+    color: #2b2b2b;
+    font-family: DaxOT-Bold;
+    font-size: 14px;
+}
+.main-table2 tbody td {
+    min-width: 182px;
+    max-width: 182px;
+    color: #2b2b2b;
+    font-family: DaxOT-Reg;
+    font-size: 14px;
+}
+
+.main-table2{border-collapse: collapse; }
+.main-table3{border-collapse: collapse;}
+
+.main-table3 tbody tr{border-bottom:none;     float: left;    width: 100%;}
+.main-table3 tbody th{ min-height:100px; border:1px solid #d6d6d6;   padding:10px;   float:left; color:#2b2b2b;   font-family: DaxOT-Bold; font-size:14px; white-space: normal;}
+.main-table3 tbody td{min-height:100px; border:1px solid #d6d6d6;  padding:10px;   float:left;  color:#2b2b2b;   font-family: DaxOT-Reg;   font-size:14px; white-space: normal;} 
+
+
+
+
+.main-table4 tbody tr{ border-bottom:1px solid #d6d6d6;     float: left;    width: 100%;}
+.main-table4 tbody th{min-width:300px; max-width:300px; color:#2b2b2b;   font-family: DaxOT-Bold; font-size:14px; white-space: normal; padding:10px;}
+.main-table4 tbody .smcols {
+    white-space: normal;
+    min-width: 200px;
+    max-width: 200px;
+    color: #2b2b2b;
+    font-family: DaxOT-Reg;
+    font-size: 14px;
+	padding:10px;
+} 
+
+
+
+
+
+
+
+
+
+
+
+.width40{ width:40%;}
+.width60{width:60%;}
+
+
+
+
+
+
+
+
+
+
+.mainFormCon{float: left;width: 100%;}
+.oneform{float: left;width: 100%;border: 1px solid #d6d6d6; border-radius:5px; margin-bottom:22px;}
+.titlediv{float: left;width: 100%; padding: 4px 20px; cursor: pointer; border-radius:5px;}
+.titlediv>h4{font-size: 16px;font-family: DaxOT-Bold;color: #000;float: left;}
+.titlediv>img{float: right;padding: 12px 0px;width: 15px;}
+.TitleAnsPart{float: left;width: 100%;padding: 20px;display: block;display: none;}
+
+
+.accPeraDefault{ float:left; width: 100%; color:#2b2b2b; font-family: DaxOT-Reg; margin-bottom:10px;}
+
+.accPeraDefault1{ float:left; width: 100%; color:#2b2b2b; font-family: DaxOT-Reg; margin-bottom:10px; position:relative; padding-left:30px;}
+.abcdPoints{color:#2b2b2b; font-family: DaxOT-Reg;  position: absolute; left:0; top:0;}
+
+
+.daPeraDefault1{ float:left; width: 100%; color:#2b2b2b; margin-bottom:10px; position:relative; padding-left:30px;}
+.daNumPoints{color:#2b2b2b;   position: absolute; left:0; top:0;}
+.insideTxt{ padding-left:30px;}
+
+
+
+
+
+.boldTxts{font-family: DaxOT-Bold !important; }
+
+
+
+.acceptBtn {
+    background: #ff9500;
+    width: 165px;
+    height: 40px;
+    color: #fff;
+	border-radius:5px;
+	border:none;
+	margin:0 15px;
+}
+.disBtn {
+    background: #ff9500;
+    width: 165px;
+    height: 40px;
+    color: #fff;
+	border-radius:5px;
+	border:none;
+	margin:0 15px;
+}
+
+.btnsPart{ width:100%; float:left; text-align:center; margin-bottom:30px;}
+
+
+.headFontMed{font-family: DaxOT-Med;}
+.bodFull{ background-color:#d6d6d6; width: 100%;float: left; height:1px; margin-bottom:15px;}
+
+.tcBox{ margin-bottom:20px;}
+ 
+.checkbox {
+    padding-left: 20px;
+	float:left;
+	width:100px;
+	margin-top:7px !important;
+}
+.checkbox label {
+    display: inline-block;
+    position: relative;
+    padding-left: 10px;
+}
+.checkbox label::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    left: 0;
+    margin-left: -20px;
+    border: 2px solid #757575;
+    border-radius: 3px;
+    background-color: #fff;
+    -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+    -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+    transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.tcBox label::after {
+    display: inline-block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 0;
+    top: 0px !important;
+    margin-left: -20px;
+    padding-left: 3px;
+    padding-top: 1px;
+    font-size: 11px;
+    color: #757575;
+    background: none;
+}
+
+.checkbox label::after {
+    display: inline-block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 0;
+    top: -4px;
+    margin-left: -20px;
+    padding-left: 3px;
+    padding-top: 1px;
+    font-size: 11px;
+    color: #757575;
+    background: none;
+}
+.checkbox input[type="checkbox"] {
+    opacity: 0;
+}
+.checkbox input[type="checkbox"]:focus+label::before {
+    outline: thin dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+.checkbox input[type="checkbox"]:checked+label::after {
+    font-family: 'Glyphicons Halflings';
+    content: "\e013";
+}
+.checkbox input[type="checkbox"]:disabled+label {
+    opacity: 0.65;
+}
+.checkbox input[type="checkbox"]:disabled+label::before {
+    background-color: #eeeeee;
+    cursor: not-allowed;
+}
+.checkbox.checkbox-circle label::before {
+    border-radius: 50%;
+}
+.checkbox.checkbox-inline {
+    margin-top: 0;
+}
+.checkbox-primary input[type="checkbox"]:checked+label::before {
+    background-color: #428bca;
+    border-color: #428bca;
+}
+.checkbox-primary input[type="checkbox"]:checked+label::after {
+    color: #fff;
+}
+.checkboxtext {
+    width: 95%;
+    float: left;
+    margin-bottom: 0;
+    margin-top: 7px;
+    margin-left: 10px;
+}
+ 
+ 
+ 
+header{width: 100%;float: left;}
+section{width: 100%;float: left;}
+.wFull{width: 100%;float: left;} 
+.regPtxt{width: 100%;float: left; color:#2b2b2b; margin-bottom:20px; line-height:24px; font-size:16px; text-align:justify;}
+.regPera{width: 100%;float: left; color:#2b2b2b; margin-bottom:10px; line-height:24px; font-size:16px; text-align:justify;}
+.boldPera{font-family: DaxOT-Bold;} 
+.subHead{ width: 100%;float: left;  font-family: DaxOT-Bold; font-size:18px; margin:0px 0 12px 0;} 
+.regPeraAbs{ position:relative; padding-left:35px; width: 100%;float: left; color:#2b2b2b; margin-bottom:10px; line-height:24px; font-size:16px; text-align:justify;}
+.regPeraAbsTxt{ position:absolute;  left:0; top:0; text-align:justify; height:auto;} 
+.marBot15{ margin-bottom:25px; float:left; }
+.inpad35{width: 100%;float: left;  padding-left:35px;}   
+.headBox{ width: 100%;float: left;  font-family: DaxOT-Bold; font-size:20px; padding:20px 15px; background-color:#448aff; color:#FFF; text-align:center; margin:0 0 30px 0;}
+  
+ .tpHead{width: 100%;float: left;  font-family: DaxOT-Bold; font-size:18px; text-align:center; margin:0px 0 12px 0;}
+ .tpComnPera{width: 100%;float: left;  font-size:14px; margin:0px 0 12px 0;}
+.tpComnPera span{ font-size:16px; }
+ 
+ 
+ 
+@media screen and (min-width:992px) and (max-width:1199px){
+ 
+ 
+
+.schedHeadSub{ min-height:75px;}
+.schedAnsTxt{min-height:75px;}
+
+ 
+.tbody { width:1096px; overflow:scroll;}
+
+.main-table tbody .smcols {    min-width: 350px;    max-width: 350px;}
+.main-table tbody .bigcols {    min-width: 470px;    max-width: 470px;}
+
+.main-table1 tbody .smcols {    min-width: 350px;    max-width: 350px;}
+.main-table1 tbody .bigcols {    min-width: 470px;    max-width: 470px;}
+.main-table1 tbody .padL60 .wFull .smcols {    min-width: 350px;    max-width: 350px;}
+.main-table1 tbody .padL60 .wFull .bigcols {    min-width: 500px;    max-width: 500px;}
+
+}
+@media screen and (min-width:768px) and (max-width:991px){
+ .schHeadSub{width: 50%;}
+.schAnsTxt{width: 50%;}
+.detHeadSub{width: 30%;}
+.detAnsTxt{width: 70%;}
+.schedHeadSub{ min-height: auto;}
+.schedAnsTxt{min-height:auto;}
+.ldmHeadSub{ min-height: auto;}
+.ldmAnsTxt{ min-height: auto;}
+.headlogo{float: left; position:absolute; left:0; top:-5px;} 
+.plaMainHead{ font-family: DaxOT-Bold; font-size:30px; margin:40px 0 40px 0;}
+
+.main-table tbody .smcols {    min-width: 250px;    max-width: 250px;}
+.main-table tbody .bigcols {    min-width: 370px;    max-width: 370px;}
+.main-table1 tbody .smcols {    min-width: 250px;    max-width: 250px;}
+.main-table1 tbody .bigcols {    min-width: 370px;    max-width: 370px;}
+.main-table1 tbody .padL60 .wFull .smcols{    min-width: 250px;    max-width: 250px;}
+.main-table1 tbody .padL60 .wFull .bigcols{    min-width: 400px;    max-width: 400px;}
+
+}
+@media screen and (min-width:318px) and (max-width:767px){ 
+ .schHeadSub{width: 100%;  margin-bottom:8px;}
+.schHeadSubDots{ display:none;}
+.schAnsTxt{width: 100%;   margin-bottom:15px; }
+ .ekycHeadSub{width: 100%; margin-bottom:5px; }
+.ekycChBox{width: 100%; margin-bottom:12px; }
+.detHeadSub{width: 100%;  margin-bottom:8px;}
+.detHeadSubDots{ display:none;}
+.detAnsTxt{width: 100%;   margin-bottom:15px; }
+.schedHeadSub{ min-height: auto; width: 100%;  margin-bottom:5px;}
+.schedHeadSubDots{ display:none;}
+.schedAnsTxt{min-height:auto; width: 100%;  margin-bottom:15px; padding-left:0;}
+.ldmHeadSub{ min-height: auto; width: 100%;  margin-bottom:5px;}
+.ldmAnsTxt{ min-height: auto; width: 100%;  margin-bottom:15px; padding-left:0;}
+.ldmHeadSub1{ min-height: auto; width: 100%;  margin-bottom:5px;}
+.ldmAnsTxt1{ min-height: auto; width: 100%;  margin-bottom:15px; padding-left:0;}
+.acceptBtn {       width: 120px;   	margin:0 10px;}
+.disBtn {       width: 120px;   	margin:0 10px;}
+.headlogo{float: left; width:100%;  position: relative; margin-bottom:20px; } 
+.plaMainHead{ float:left; width:100%; font-family: DaxOT-Bold; font-size:26px; margin:20px 0 20px 0; text-align:left;}
+
+.table-scroll th {    padding: 5px 10px;}
+
+.main-table tbody .smcols {    min-width: 220px;    max-width: 220px;}
+.main-table tbody .bigcols {    min-width: 250px;    max-width: 250px;}
+.main-table1 tbody .smcols {    min-width: 250px;    max-width: 250px;}
+.main-table1 tbody .bigcols {    min-width: 370px;    max-width: 370px;}
+.main-table1 tbody .padL60 .wFull .smcols{    min-width: 250px;    max-width: 250px;}
+.main-table1 tbody .padL60 .wFull .bigcols{    min-width: 350px;    max-width: 350px;}
+.main-table4 tbody th{min-width:150px; max-width:150px;}
+.main-table4 tbody .smcols { min-width: 150px;    max-width: 150px;   } 
+.main-table5{overflow: scroll;}
+.main-table5 tbody{ width:450px; float:left;}
+.main-table5 tbody th{min-width:150px; max-width:150px;}
+.main-table5 tbody .smcols { min-width: 150px;    max-width: 150px;   }
+.mobPadNone{ padding:0;}
+}
+
+
+
+
+
+
+ 
+@media screen and (min-width:992px) and (max-width:1199px){
+ 
+.table-scroll { 	max-width:880px;}
+
+.schedHeadSub{ min-height:75px;}
+.schedAnsTxt{min-height:75px;}
+
+.table-scroll { width:1096px; overflow: hidden;}
+.tbody { width:1096px; overflow:scroll;}
+.main-table1 tbody th{min-width:290px; }
+.main-table1 tbody td{min-width:290px; } 
+
+}
+@media screen and (min-width:768px) and (max-width:991px){
+ .schHeadSub{width: 50%;}
+.schAnsTxt{width: 50%;}
+
+.detHeadSub{width: 30%;}
+.detAnsTxt{width: 70%;}
+
+.schedHeadSub{ min-height: auto;}
+.schedAnsTxt{min-height:auto;}
+
+.ldmHeadSub{ min-height: auto;}
+.ldmAnsTxt{ min-height: auto;}
+
+.headlogo{float: left; position:absolute; left:0; top:-5px;} 
+.plaMainHead{ font-family: DaxOT-Bold; font-size:30px; margin:40px 0 40px 0;}
+
+.main-table1 tbody th{min-width:225px; }
+.main-table1 tbody td{min-width:225px; } 
+}
+@media screen and (min-width:318px) and (max-width:767px){ 
+ .schHeadSub{width: 100%;  margin-bottom:8px;}
+.schHeadSubDots{ display:none;}
+.schAnsTxt{width: 100%;   margin-bottom:15px; }
+ 
+ 
+.ekycHeadSub{width: 100%; margin-bottom:5px; }
+.ekycChBox{width: 100%; margin-bottom:12px; }
+
+.detHeadSub{width: 100%;  margin-bottom:8px;}
+.detHeadSubDots{ display:none;}
+.detAnsTxt{width: 100%;   margin-bottom:15px; }
+
+.schedHeadSub{ min-height: auto; width: 100%;  margin-bottom:5px;}
+.schedHeadSubDots{ display:none;}
+.schedAnsTxt{min-height:auto; width: 100%;  margin-bottom:15px; padding-left:0;}
+
+.ldmHeadSub{ min-height: auto; width: 100%;  margin-bottom:5px;}
+.ldmAnsTxt{ min-height: auto; width: 100%;  margin-bottom:15px; padding-left:0;}
+.ldmHeadSub1{ min-height: auto; width: 100%;  margin-bottom:5px;}
+.ldmAnsTxt1{ min-height: auto; width: 100%;  margin-bottom:15px; padding-left:0;}
+
+.acceptBtn {       width: 35%;   	margin:0 10px;}
+.disBtn {       width: 35%;   	margin:0 10px;}
+
+
+.headlogo{float: left; width:100%;  position: relative; margin-bottom:20px; } 
+.plaMainHead{ float:left; width:100%; font-family: DaxOT-Bold; font-size:26px; margin:20px 0 20px 0; text-align:left;}
+
+.main-table tbody th{  min-width:160px; padding:10px 0px 10px 0px;}
+.table-scroll th {	padding:10px 0px 10px 0px;}
+.main-table6 tbody th{  min-width:150px;padding:10px 0px 10px 0px;}
+
+.detBoxHBdy {
+    margin-bottom: 15px;
+    border-right: 0;
+}
+.detBoxDecHTxtPop {
+    float: left;
+    width: 80%;
+}
+.detBoxValHTxtPop {
+    float: left;
+    width: 20%;
+}
+.fCoDetLeftPop {
+    float: left;
+    width: 80%;
+}
+.fCoDetRightPop {
+    float: left;
+    width: 20%;
+}
+.other-Txtbox {
+    padding: 0px 15px 15px 15px;
+}
+
+.findComDetListPop {
+    padding: 10px 15px 15px 15px;
+}
+
+
+.main-table1 tbody th{min-width:180px; }
+.main-table1 tbody td{min-width:180px; } 
+
+}
+
+
+
+

@@ -108,6 +108,8 @@ class TemplatesController < ApplicationController
       end
       # @lines = params[:template][:full_content]
       # new_params = template_params
+      @lines.gsub!('images/', '/images/')
+
       new_params['full_content'] = @lines
       new_params['body'] = crop_body(@lines)
       # new_params['locales'] = params[:template][:locales]

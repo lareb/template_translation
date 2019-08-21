@@ -27,11 +27,12 @@ module ApplicationHelper
 
     return %{
       <!--PREVIEW-FORMS-->
-      <div class="navbar"><a href="#" onclick="return saveAsNewVersion()">Save As New Version</a><a href="#" onclick="return updateVersion()">Update Version</a><a href="#" onclick="return freezVersion()">Freez this version</a><a href="#{template_translation_text_versions_path(template_text.template, template_text)}">Back</a></div>
+      <div class="navbar"><a href="#" onclick="return saveAsNewVersion()">Save As New Version</a><a href="#" onclick="return updateVersion()">Update Version</a><a href="#" onclick="return freezVersion()">Freez this version</a><a href="#{template_translation_text_versions_path(template_text.template, template_text)}">Back</a><a href="#" onclick="return generatePDF('#{pdf_template_translation_text_version_path(template_text.template, template_text, version)}', '#{download_template_translation_text_version_url(template_text.template, template_text, version)}')">PDF</a></div>
       <input type="hidden" value="#{template_text.id}" id="template_text_id" />
       <input type="hidden" value="#{template_translation_text_version_path(template_text.template, template_text, version)}" id="edit_form_url" />
       <input type="hidden" value="#{template_translation_text_versions_path(template_text.template, template_text)}" id="new_form_url" />
       <input type="hidden" value="#{freez_template_translation_text_version_path(template_text.template, template_text, version)}" id="freez_version_url" />
+      <div id='parent' style='display:none;'></div>
       <!--/PREVIEW-FORMS-->
     }
   end
@@ -39,6 +40,9 @@ module ApplicationHelper
   def preview_assets
     return %{
       <!--PREVIEW-FIELDS-->
+      <link href="/css/bootstrap.min.css" rel="stylesheet">
+      <link href="/css/impFormstyle.css" rel="stylesheet">
+
       <link href="/css/bootstrap-editable.css" rel="stylesheet">
       <link href="/css/preview.css" rel="stylesheet">
       <link href="/css/bootstrap.css" rel="stylesheet">
@@ -47,7 +51,11 @@ module ApplicationHelper
       <script src="/js/jquery-1.9.1.min.js"csrf-token></script>
       <script src="/js/bootstrap.js"></script>
       <script src="/js/bootstrap-editable.js"></script>
+      <script src="/js/html2canvas.js"></script>
+      <script src="/js/jspdf.min.js"></script>
       <script src="/js/preview.js"></script>
+
+
       <!--/PREVIEW-FIELDS-->
     }
   end
