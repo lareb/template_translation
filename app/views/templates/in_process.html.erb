@@ -56,11 +56,11 @@
     // for all templates
     $('#template_body *').contents().filter(function() {
       return (this.nodeType == 3) && this.nodeValue.match(/\S/);
-    }).wrap("<span class='translation' />");
+    }).wrap("<span class='translation-required' />");
 
     // prepair JSON object
     let pair = {}
-    $("#template_body span.translation").map(function(index, dom){
+    $("#template_body span.translation-required").map(function(index, dom){
       let text = $(dom).text().trim();
       let key = reFormatName(text);
       pair[key] = text;
