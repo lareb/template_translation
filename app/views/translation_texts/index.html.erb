@@ -6,17 +6,21 @@
 
 
 <%#= Sidekiq::Queue.new.find_job()%>
-<div class="row">
+<div class="row mb-3 text-center">
   <% @translation_texts.each do |translation_text| %>
     <% #next if translation_text.is_core?%>
     <div class="col-lg-4">
-      <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect>
-        <text x="40%" y="50%" fill="#FF0000" dy=".3em">EN</text>
-      </svg>
-      <h2><%= get_local_word(translation_text.local)%></h2>
-      <p><%= @template.title%> in <%= SUPPORTED_LOCALE[translation_text.local.to_sym]%></p>
-      <p><%= link_to "Preview Latest Version»", template_translation_text_version_path(@template, translation_text, translation_text.versions.try(:last)), class: "btn btn-secondary", target: "_blank"%></p>
-      <p><%= link_to "Versions»", template_translation_text_versions_path(@template, translation_text), class: "btn btn-secondary", target: "_blank"%></p>
+      <div class="card gradient-1 shadow mb-4 pt-3">
+        <div class="card-body">
+          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect>
+            <text x="40%" y="50%" fill="#FF0000" dy=".3em">EN</text>
+          </svg>
+          <h2 class="text-white"><%= get_local_word(translation_text.local)%></h2>
+          <p class="text-white"><%= @template.title%> in <%= SUPPORTED_LOCALE[translation_text.local.to_sym]%></p>
+          <p><%= link_to "Preview Latest Version»", template_translation_text_version_path(@template, translation_text, translation_text.versions.try(:last)), class: "btn btn-lg btn-block btn-primary btn-outline-primary mb-6 text-white", target: "_blank"%></p>
+          <p><%= link_to "Versions»", template_translation_text_versions_path(@template, translation_text), class: "btn btn-lg btn-block btn-primary btn-outline-primary mb-6 text-white", target: "_blank"%></p>
+          </div>
+        </div>
       </div>
     <% end %>
 </div>

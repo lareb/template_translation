@@ -41,3 +41,12 @@
 .add-new-template i{
   margin-top: 12px !important;
 }
+
+.logo img { height: 50px; width: auto; }
+.card {
+    margin-bottom: 30px;
+    border: 0px;
+    border-radius: 0.625rem;
+    box-shadow: 6px 11px 41px -28px #a99de7;
+}
+.gradient-1 {     background-image: linear-gradient(230deg, #759bff, #843cf6); }
